@@ -78,10 +78,109 @@ class MarketView: UIView {
         view.backgroundColor = .white
         return view
     }()
-    
-    let valuationView: UIView = {
+    //MARK: valuationView
+    lazy var valuationView: UIView = {
         let view = UIView()
+        view.backgroundColor = PurpleCoinColor.lightPointColor
+        [
+            totalPurchaseTitleLabel,totalPurchaseContentLabel,
+            totalEvaluationTitleLabel, totalEvaluationContentLabel,
+            valuationGainOrLossTitleLabel, valuationGainOrLossContentLabel,
+            rateOfReturnTitleLabel, rateOfReturnContentLabel
+        ].forEach {
+            view.addSubview($0)
+        }
+        totalPurchaseTitleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(12 * ScreenFigure.VRatioValue)
+            $0.left.equalToSuperview().inset(12 * ScreenFigure.HRatioValue)
+        }
+        totalPurchaseContentLabel.snp.makeConstraints {
+            $0.centerY.equalTo(totalPurchaseTitleLabel)
+            $0.right.equalTo(view.snp.centerX).offset(-8 * ScreenFigure.HRatioValue)
+        }
+        totalEvaluationTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(totalPurchaseTitleLabel.snp.bottom).offset(12 * ScreenFigure.VRatioValue)
+            $0.left.equalToSuperview().inset(12 * ScreenFigure.HRatioValue)
+            $0.bottom.equalToSuperview().inset(12 * ScreenFigure.VRatioValue)
+        }
+        totalEvaluationContentLabel.snp.makeConstraints {
+            $0.centerY.equalTo(totalEvaluationTitleLabel)
+            $0.right.equalTo(view.snp.centerX).offset(-8 * ScreenFigure.HRatioValue)
+        }
+        valuationGainOrLossTitleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(12 * ScreenFigure.VRatioValue)
+            $0.left.equalTo(view.snp.centerX).offset(8 * ScreenFigure.HRatioValue)
+        }
+        valuationGainOrLossContentLabel.snp.makeConstraints {
+            $0.centerY.equalTo(valuationGainOrLossTitleLabel)
+            $0.right.equalToSuperview().inset(12 * ScreenFigure.HRatioValue)
+        }
+        rateOfReturnTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(valuationGainOrLossTitleLabel.snp.bottom).offset(12 * ScreenFigure.HRatioValue)
+            $0.left.equalTo(valuationGainOrLossTitleLabel)
+            $0.bottom.equalToSuperview().inset(12 * ScreenFigure.HRatioValue)
+        }
+        rateOfReturnContentLabel.snp.makeConstraints {
+            $0.centerY.equalTo(rateOfReturnTitleLabel)
+            $0.right.equalToSuperview().inset(12 * ScreenFigure.HRatioValue)
+        }
         return view
+    }()
+    let totalPurchaseTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "총 매수"
+        label.textColor = .white
+        label.font = PurpleCoinFont.font(type: .medium, size: 12)
+        return label
+    }()
+    let totalPurchaseContentLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0000"
+        label.textColor = .white
+        label.font = PurpleCoinFont.font(type: .medium, size: 12)
+        return label
+    }()
+    let totalEvaluationTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "총 평가"
+        label.textColor = .white
+        label.font = PurpleCoinFont.font(type: .medium, size: 12)
+        return label
+    }()
+    let totalEvaluationContentLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0000"
+        label.textColor = .white
+        label.font = PurpleCoinFont.font(type: .medium, size: 12)
+        return label
+    }()
+    let valuationGainOrLossTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "평가손익"
+        label.textColor = .white
+        label.font = PurpleCoinFont.font(type: .medium, size: 12)
+        return label
+    }()
+    let valuationGainOrLossContentLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0000"
+        label.textColor = .white
+        label.font = PurpleCoinFont.font(type: .medium, size: 12)
+        return label
+    }()
+    let rateOfReturnTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "수익률"
+        label.textColor = .white
+        label.font = PurpleCoinFont.font(type: .medium, size: 12)
+        return label
+    }()
+    let rateOfReturnContentLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0000"
+        label.textColor = .white
+        label.font = PurpleCoinFont.font(type: .medium, size: 12)
+        return label
     }()
     
     let columnTitleView: UIView = {
@@ -104,11 +203,15 @@ class MarketView: UIView {
     }
     
     func setLayout() {
-        [topView].forEach {
+        [topView, valuationView].forEach {
             addSubview($0)
         }
         topView.snp.makeConstraints {
             $0.top.left.right.equalToSuperview()
+        }
+        valuationView.snp.makeConstraints {
+            $0.top.equalTo(topView.snp.bottom)
+            $0.left.right.equalToSuperview()
         }
     }
 }
