@@ -33,7 +33,7 @@ enum ScreenFigure {
         if UIDevice.current.isNotch {
             return 80 * ScreenFigure.VRatioValue
         } else {
-            return 70
+            return 70 * ScreenFigure.VRatioValue
         }
     }
 }

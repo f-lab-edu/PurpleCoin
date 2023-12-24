@@ -108,7 +108,7 @@ class MarketView: UIView {
             $0.right.equalTo(view.snp.centerX).offset(-8 * ScreenFigure.HRatioValue)
         }
         valuationGainOrLossTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(12 * ScreenFigure.VRatioValue)
+            $0.centerY.equalTo(totalPurchaseTitleLabel)
             $0.left.equalTo(view.snp.centerX).offset(8 * ScreenFigure.HRatioValue)
         }
         valuationGainOrLossContentLabel.snp.makeConstraints {
@@ -116,9 +116,8 @@ class MarketView: UIView {
             $0.right.equalToSuperview().inset(12 * ScreenFigure.HRatioValue)
         }
         rateOfReturnTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(valuationGainOrLossTitleLabel.snp.bottom).offset(12 * ScreenFigure.HRatioValue)
+            $0.centerY.equalTo(totalEvaluationTitleLabel)
             $0.left.equalTo(valuationGainOrLossTitleLabel)
-            $0.bottom.equalToSuperview().inset(12 * ScreenFigure.HRatioValue)
         }
         rateOfReturnContentLabel.snp.makeConstraints {
             $0.centerY.equalTo(rateOfReturnTitleLabel)
@@ -297,9 +296,14 @@ class MarketView: UIView {
         view.backgroundColor = .white
         return view
     }()
-    
-    let coinListView: UITableView = {
+    //MARK: coinTableView
+    let coinTableView: UITableView = {
         let tableView = UITableView()
+        tableView.backgroundColor = PurpleCoinColor.darkPointColor
+        tableView.showsVerticalScrollIndicator = false
+        tableView.allowsSelection = false
+        tableView.isUserInteractionEnabled = true
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -313,7 +317,7 @@ class MarketView: UIView {
     }
     
     func setLayout() {
-        [topView, valuationView, sortingButtonView, columnTitleView].forEach {
+        [topView, valuationView, sortingButtonView, columnTitleView, coinTableView].forEach {
             addSubview($0)
         }
         topView.snp.makeConstraints {
@@ -330,6 +334,10 @@ class MarketView: UIView {
         columnTitleView.snp.makeConstraints {
             $0.top.equalTo(sortingButtonView.snp.bottom)
             $0.left.right.equalToSuperview()
+        }
+        coinTableView.snp.makeConstraints {
+            $0.top.equalTo(columnTitleView.snp.bottom)
+            $0.left.right.bottom.equalToSuperview()
         }
     }
 }
