@@ -183,6 +183,48 @@ class MarketView: UIView {
         return label
     }()
     
+    //MARK: sortingButtonView
+    lazy var sortingButtonView: UIView = {
+        let view = UIView()
+        view.backgroundColor = PurpleCoinColor.darkPointColor
+        [sortingOfAllButton, sortingOfIntrestButton].forEach {
+            view.addSubview($0)
+        }
+        sortingOfAllButton.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(7 * ScreenFigure.VRatioValue)
+            $0.left.equalToSuperview().inset(12 * ScreenFigure.HRatioValue)
+            $0.width.equalTo(85 * ScreenFigure.HRatioValue)
+            $0.height.equalTo(27 * ScreenFigure.VRatioValue)
+        }
+        sortingOfIntrestButton.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(7 * ScreenFigure.VRatioValue)
+            $0.left.equalTo(sortingOfAllButton.snp.right).offset(17 * ScreenFigure.HRatioValue)
+            $0.width.equalTo(48 * ScreenFigure.HRatioValue)
+            $0.height.equalTo(27 * ScreenFigure.VRatioValue)
+        }
+        return view
+    }()
+    let sortingOfAllButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("전체(KRW)", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(PurpleCoinColor.selectColor, for: .selected)
+        button.titleLabel?.font = PurpleCoinFont.font(type: .semibold, size: 13)
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        return button
+    }()
+    let sortingOfIntrestButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("관심", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(PurpleCoinColor.selectColor, for: .selected)
+        button.titleLabel?.font = PurpleCoinFont.font(type: .semibold, size: 13)
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        return button
+    }()
+    
     let columnTitleView: UIView = {
         let view = UIView()
         return view
@@ -203,7 +245,7 @@ class MarketView: UIView {
     }
     
     func setLayout() {
-        [topView, valuationView].forEach {
+        [topView, valuationView, sortingButtonView].forEach {
             addSubview($0)
         }
         topView.snp.makeConstraints {
@@ -211,6 +253,10 @@ class MarketView: UIView {
         }
         valuationView.snp.makeConstraints {
             $0.top.equalTo(topView.snp.bottom)
+            $0.left.right.equalToSuperview()
+        }
+        sortingButtonView.snp.makeConstraints {
+            $0.top.equalTo(valuationView.snp.bottom)
             $0.left.right.equalToSuperview()
         }
     }
