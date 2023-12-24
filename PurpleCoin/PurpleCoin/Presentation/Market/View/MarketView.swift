@@ -225,8 +225,76 @@ class MarketView: UIView {
         return button
     }()
     
-    let columnTitleView: UIView = {
+    //MARK: columnTitleView
+    lazy var columnTitleView: UIView = {
         let view = UIView()
+        view.backgroundColor = PurpleCoinColor.darkPointColor
+        [columnTopLineView, coinNameLabel, currentPriceLabel, percentOfPreviousDayLabel, transactionPriceLabel, columnBottomLineView].forEach {
+            view.addSubview($0)
+        }
+        columnTopLineView.snp.makeConstraints {
+            $0.top.left.right.equalToSuperview()
+            $0.height.equalTo(1)
+        }
+        coinNameLabel.snp.makeConstraints {
+            $0.top.equalTo(columnTopLineView.snp.bottom).offset(5 * ScreenFigure.VRatioValue)
+            $0.left.equalToSuperview().inset(12 * ScreenFigure.HRatioValue)
+            $0.bottom.equalTo(columnBottomLineView.snp.bottom).offset(-5 * ScreenFigure.VRatioValue)
+        }
+        currentPriceLabel.snp.makeConstraints {
+            $0.centerY.equalTo(coinNameLabel)
+            $0.right.equalTo(percentOfPreviousDayLabel.snp.left).offset(-19 * ScreenFigure.HRatioValue)
+        }
+        percentOfPreviousDayLabel.snp.makeConstraints {
+            $0.centerY.equalTo(coinNameLabel)
+            $0.right.equalTo(transactionPriceLabel.snp.left).offset(-41 * ScreenFigure.HRatioValue)
+        }
+        transactionPriceLabel.snp.makeConstraints {
+            $0.centerY.equalTo(coinNameLabel)
+            $0.right.equalToSuperview().inset(12 * ScreenFigure.HRatioValue)
+        }
+        columnBottomLineView.snp.makeConstraints {
+            $0.left.right.bottom.equalToSuperview()
+            $0.height.equalTo(1)
+        }
+        return view
+    }()
+    let columnTopLineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    let coinNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "코인명"
+        label.textColor = .white
+        label.font = PurpleCoinFont.font(type: .semibold, size: 11)
+        return label
+    }()
+    let currentPriceLabel: UILabel = {
+        let label = UILabel()
+        label.text = "현재가"
+        label.textColor = .white
+        label.font = PurpleCoinFont.font(type: .semibold, size: 11)
+        return label
+    }()
+    let percentOfPreviousDayLabel: UILabel = {
+        let label = UILabel()
+        label.text = "전일대비"
+        label.textColor = .white
+        label.font = PurpleCoinFont.font(type: .semibold, size: 11)
+        return label
+    }()
+    let transactionPriceLabel: UILabel = {
+        let label = UILabel()
+        label.text = "거래대금"
+        label.textColor = .white
+        label.font = PurpleCoinFont.font(type: .semibold, size: 11)
+        return label
+    }()
+    let columnBottomLineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
         return view
     }()
     
@@ -245,7 +313,7 @@ class MarketView: UIView {
     }
     
     func setLayout() {
-        [topView, valuationView, sortingButtonView].forEach {
+        [topView, valuationView, sortingButtonView, columnTitleView].forEach {
             addSubview($0)
         }
         topView.snp.makeConstraints {
@@ -257,6 +325,10 @@ class MarketView: UIView {
         }
         sortingButtonView.snp.makeConstraints {
             $0.top.equalTo(valuationView.snp.bottom)
+            $0.left.right.equalToSuperview()
+        }
+        columnTitleView.snp.makeConstraints {
+            $0.top.equalTo(sortingButtonView.snp.bottom)
             $0.left.right.equalToSuperview()
         }
     }
