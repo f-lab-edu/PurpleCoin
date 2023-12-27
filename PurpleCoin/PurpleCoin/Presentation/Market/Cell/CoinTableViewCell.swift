@@ -8,7 +8,7 @@
 import UIKit
 
 class CoinTableViewCell: UITableViewCell {
-    
+    // 코인 이름 - 한국 
     let koreanCoinNameLabel: UILabel = {
         let label = UILabel()
         label.text = "도지코인"
