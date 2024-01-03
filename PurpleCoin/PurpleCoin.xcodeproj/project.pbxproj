@@ -22,11 +22,13 @@
 		409286D62B35695700E89F62 /* DetailCoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286D52B35695700E89F62 /* DetailCoinViewController.swift */; };
 		409286DA2B35703000E89F62 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286D92B35703000E89F62 /* Constants.swift */; };
 		683B9D0C853020C7F9FAAF13 /* Pods_PurpleCoin_PurpleCoinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D013B30DED23B68BE98E30D /* Pods_PurpleCoin_PurpleCoinUITests.framework */; };
+		79A448D72B3873B800A18516 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A448D62B3873B800A18516 /* CoinTableViewCell.swift */; };
 		79CDA6832B36AF9B00633B65 /* BottomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CDA6822B36AF9B00633B65 /* BottomNavigationView.swift */; };
 		79CDA6872B36AFD900633B65 /* UIDevice+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CDA6862B36AFD900633B65 /* UIDevice+.swift */; };
 		79CDA68A2B36B16F00633B65 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 79CDA6892B36B16E00633B65 /* home.png */; };
 		79CDA68C2B36B1B500633B65 /* asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 79CDA68B2B36B1B500633B65 /* asset.png */; };
 		79CDA68F2B36C02100633B65 /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CDA68E2B36C02100633B65 /* AssetViewController.swift */; };
+		79CDA6912B37F58000633B65 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 79CDA6902B37F58000633B65 /* search.png */; };
 		7C71EBA7FB50F1FBD4DDB2E2 /* Pods_PurpleCoinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E66BB1E5033157A6F09D82C4 /* Pods_PurpleCoinTests.framework */; };
 		E3715EC89102183D524D6725 /* Pods_PurpleCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13891B952BD7B187B6A35270 /* Pods_PurpleCoin.framework */; };
 /* End PBXBuildFile section */
@@ -69,11 +71,13 @@
 		409286D52B35695700E89F62 /* DetailCoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoinViewController.swift; sourceTree = "<group>"; };
 		409286D92B35703000E89F62 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		70FED6C54BEADE5F81A7F666 /* Pods-PurpleCoinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurpleCoinTests.release.xcconfig"; path = "Target Support Files/Pods-PurpleCoinTests/Pods-PurpleCoinTests.release.xcconfig"; sourceTree = "<group>"; };
+		79A448D62B3873B800A18516 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		79CDA6822B36AF9B00633B65 /* BottomNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomNavigationView.swift; sourceTree = "<group>"; };
 		79CDA6862B36AFD900633B65 /* UIDevice+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+.swift"; sourceTree = "<group>"; };
 		79CDA6892B36B16E00633B65 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		79CDA68B2B36B1B500633B65 /* asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asset.png; sourceTree = "<group>"; };
 		79CDA68E2B36C02100633B65 /* AssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
+		79CDA6902B37F58000633B65 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		8D013B30DED23B68BE98E30D /* Pods_PurpleCoin_PurpleCoinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PurpleCoin_PurpleCoinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B78195EA0C025699F14B6D3 /* Pods-PurpleCoin-PurpleCoinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurpleCoin-PurpleCoinUITests.debug.xcconfig"; path = "Target Support Files/Pods-PurpleCoin-PurpleCoinUITests/Pods-PurpleCoin-PurpleCoinUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9CFA0BC7C5042A9760A84C84 /* Pods-PurpleCoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurpleCoin.release.xcconfig"; path = "Target Support Files/Pods-PurpleCoin/Pods-PurpleCoin.release.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 		409286BF2B351AAF00E89F62 /* Market */ = {
 			isa = PBXGroup;
 			children = (
+				79A448D52B3871E800A18516 /* Cell */,
 				409286C52B351B0600E89F62 /* View */,
 			);
 			path = Market;
@@ -253,6 +258,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		79A448D52B3871E800A18516 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				79A448D62B3873B800A18516 /* CoinTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		79CDA66E2B36A91300633B65 /* Sub */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +293,7 @@
 		79CDA6882B36B16300633B65 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				79CDA6902B37F58000633B65 /* search.png */,
 				79CDA68B2B36B1B500633B65 /* asset.png */,
 				79CDA6892B36B16E00633B65 /* home.png */,
 			);
@@ -426,6 +440,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79CDA6912B37F58000633B65 /* search.png in Resources */,
 				79CDA68C2B36B1B500633B65 /* asset.png in Resources */,
 				409286902B3515D300E89F62 /* LaunchScreen.storyboard in Resources */,
 				4092868D2B3515D300E89F62 /* Assets.xcassets in Resources */,
@@ -566,6 +581,7 @@
 				409286862B3515D100E89F62 /* SceneDelegate.swift in Sources */,
 				79CDA68F2B36C02100633B65 /* AssetViewController.swift in Sources */,
 				79CDA6832B36AF9B00633B65 /* BottomNavigationView.swift in Sources */,
+				79A448D72B3873B800A18516 /* CoinTableViewCell.swift in Sources */,
 				409286D22B3568DA00E89F62 /* MarketViewController.swift in Sources */,
 				409286DA2B35703000E89F62 /* Constants.swift in Sources */,
 				409286CE2B3567FB00E89F62 /* MainViewController.swift in Sources */,
@@ -744,8 +760,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -773,8 +789,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
