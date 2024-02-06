@@ -1,0 +1,1105 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		402BDC372B50E01400137E90 /* DetailCoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BDC362B50E01400137E90 /* DetailCoinViewModel.swift */; };
+		402BDC392B50EC7400137E90 /* OrderBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402BDC382B50EC7400137E90 /* OrderBook.swift */; };
+		409286842B3515D100E89F62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286832B3515D100E89F62 /* AppDelegate.swift */; };
+		409286862B3515D100E89F62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286852B3515D100E89F62 /* SceneDelegate.swift */; };
+		4092868D2B3515D300E89F62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4092868C2B3515D300E89F62 /* Assets.xcassets */; };
+		409286902B3515D300E89F62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4092868E2B3515D300E89F62 /* LaunchScreen.storyboard */; };
+		4092869B2B3515D300E89F62 /* PurpleCoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092869A2B3515D300E89F62 /* PurpleCoinTests.swift */; };
+		409286A52B3515D300E89F62 /* PurpleCoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286A42B3515D300E89F62 /* PurpleCoinUITests.swift */; };
+		409286A72B3515D300E89F62 /* PurpleCoinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286A62B3515D300E89F62 /* PurpleCoinUITestsLaunchTests.swift */; };
+		409286CC2B3567F500E89F62 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286CB2B3567F500E89F62 /* MainView.swift */; };
+		409286CE2B3567FB00E89F62 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286CD2B3567FB00E89F62 /* MainViewController.swift */; };
+		409286D02B3568D500E89F62 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286CF2B3568D500E89F62 /* MarketView.swift */; };
+		409286D22B3568DA00E89F62 /* MarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286D12B3568DA00E89F62 /* MarketViewController.swift */; };
+		409286D42B35695000E89F62 /* DetailCoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286D32B35695000E89F62 /* DetailCoinView.swift */; };
+		409286D62B35695700E89F62 /* DetailCoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286D52B35695700E89F62 /* DetailCoinViewController.swift */; };
+		409286DA2B35703000E89F62 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286D92B35703000E89F62 /* Constants.swift */; };
+		683B9D0C853020C7F9FAAF13 /* Pods_PurpleCoin_PurpleCoinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D013B30DED23B68BE98E30D /* Pods_PurpleCoin_PurpleCoinUITests.framework */; };
+		79A448D72B3873B800A18516 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A448D62B3873B800A18516 /* CoinTableViewCell.swift */; };
+		79C5A3952B46ED7200EC25BE /* star_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 79C5A3932B46ED7200EC25BE /* star_filled.png */; };
+		79C5A3992B46EF1600EC25BE /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 79C5A3982B46EF1600EC25BE /* star.png */; };
+		79C5A39B2B4920B700EC25BE /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 79C5A39A2B4920B700EC25BE /* back.png */; };
+		79C5A3A32B4BC8ED00EC25BE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3A22B4BC8ED00EC25BE /* API.swift */; };
+		79C5A3A52B4BC95100EC25BE /* OrderBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3A42B4BC95100EC25BE /* OrderBookTableViewCell.swift */; };
+		79C5A3A72B4BC9A800EC25BE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3A62B4BC9A800EC25BE /* APIService.swift */; };
+		79C5A3AA2B4BCAA000EC25BE /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3A92B4BCAA000EC25BE /* NetworkConfig.swift */; };
+		79C5A3AE2B4BCDBF00EC25BE /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3AD2B4BCDBF00EC25BE /* Market.swift */; };
+		79C5A3B12B4BE7E400EC25BE /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3B02B4BE7E400EC25BE /* MarketViewModel.swift */; };
+		79C5A3B42B4D6A3400EC25BE /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3B32B4D6A3400EC25BE /* Formatter.swift */; };
+		79C5A3B62B55188400EC25BE /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3B52B55188400EC25BE /* UserConfig.swift */; };
+		79C5A3BA2B5FE3DA00EC25BE /* FontConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3B92B5FE3DA00EC25BE /* FontConfig.swift */; };
+		79C5A3BD2B5FED7800EC25BE /* DetailCoinTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3BC2B5FED7800EC25BE /* DetailCoinTopView.swift */; };
+		79C5A3BF2B5FEF4400EC25BE /* CoinInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3BE2B5FEF4400EC25BE /* CoinInformationView.swift */; };
+		79C5A3C22B5FF04200EC25BE /* MarketTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3C12B5FF04200EC25BE /* MarketTopView.swift */; };
+		79C5A3C42B5FF16E00EC25BE /* MarketValuationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3C32B5FF16E00EC25BE /* MarketValuationView.swift */; };
+		79C5A3C62B5FF25100EC25BE /* MarketColumnTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3C52B5FF25100EC25BE /* MarketColumnTitleView.swift */; };
+		79C5A3C82B5FF30B00EC25BE /* MarketSortingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3C72B5FF30B00EC25BE /* MarketSortingButtonView.swift */; };
+		79C5A3CE2B67B35400EC25BE /* MarketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3CD2B67B35400EC25BE /* MarketError.swift */; };
+		79C5A3D02B67B38B00EC25BE /* OrderBookError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3CF2B67B38B00EC25BE /* OrderBookError.swift */; };
+		79CDA6832B36AF9B00633B65 /* BottomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CDA6822B36AF9B00633B65 /* BottomNavigationView.swift */; };
+		79CDA6872B36AFD900633B65 /* UIDevice+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CDA6862B36AFD900633B65 /* UIDevice+.swift */; };
+		79CDA68A2B36B16F00633B65 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 79CDA6892B36B16E00633B65 /* home.png */; };
+		79CDA68C2B36B1B500633B65 /* asset.png in Resources */ = {isa = PBXBuildFile; fileRef = 79CDA68B2B36B1B500633B65 /* asset.png */; };
+		79CDA68F2B36C02100633B65 /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CDA68E2B36C02100633B65 /* AssetViewController.swift */; };
+		79CDA6912B37F58000633B65 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 79CDA6902B37F58000633B65 /* search.png */; };
+		7C71EBA7FB50F1FBD4DDB2E2 /* Pods_PurpleCoinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E66BB1E5033157A6F09D82C4 /* Pods_PurpleCoinTests.framework */; };
+		E3715EC89102183D524D6725 /* Pods_PurpleCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13891B952BD7B187B6A35270 /* Pods_PurpleCoin.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		409286972B3515D300E89F62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 409286782B3515D100E89F62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4092867F2B3515D100E89F62;
+			remoteInfo = PurpleCoin;
+		};
+		409286A12B3515D300E89F62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 409286782B3515D100E89F62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4092867F2B3515D100E89F62;
+			remoteInfo = PurpleCoin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		13891B952BD7B187B6A35270 /* Pods_PurpleCoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PurpleCoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		402BDC362B50E01400137E90 /* DetailCoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoinViewModel.swift; sourceTree = "<group>"; };
+		402BDC382B50EC7400137E90 /* OrderBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBook.swift; sourceTree = "<group>"; };
+		409286802B3515D100E89F62 /* PurpleCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurpleCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		409286832B3515D100E89F62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		409286852B3515D100E89F62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4092868C2B3515D300E89F62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4092868F2B3515D300E89F62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		409286912B3515D300E89F62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		409286962B3515D300E89F62 /* PurpleCoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PurpleCoinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4092869A2B3515D300E89F62 /* PurpleCoinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleCoinTests.swift; sourceTree = "<group>"; };
+		409286A02B3515D300E89F62 /* PurpleCoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PurpleCoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		409286A42B3515D300E89F62 /* PurpleCoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleCoinUITests.swift; sourceTree = "<group>"; };
+		409286A62B3515D300E89F62 /* PurpleCoinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleCoinUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		409286CB2B3567F500E89F62 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		409286CD2B3567FB00E89F62 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		409286CF2B3568D500E89F62 /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
+		409286D12B3568DA00E89F62 /* MarketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewController.swift; sourceTree = "<group>"; };
+		409286D32B35695000E89F62 /* DetailCoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoinView.swift; sourceTree = "<group>"; };
+		409286D52B35695700E89F62 /* DetailCoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoinViewController.swift; sourceTree = "<group>"; };
+		409286D92B35703000E89F62 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		70FED6C54BEADE5F81A7F666 /* Pods-PurpleCoinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurpleCoinTests.release.xcconfig"; path = "Target Support Files/Pods-PurpleCoinTests/Pods-PurpleCoinTests.release.xcconfig"; sourceTree = "<group>"; };
+		79A448D62B3873B800A18516 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
+		79C5A3932B46ED7200EC25BE /* star_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_filled.png; sourceTree = "<group>"; };
+		79C5A3982B46EF1600EC25BE /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		79C5A39A2B4920B700EC25BE /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		79C5A3A22B4BC8ED00EC25BE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		79C5A3A42B4BC95100EC25BE /* OrderBookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderBookTableViewCell.swift; sourceTree = "<group>"; };
+		79C5A3A62B4BC9A800EC25BE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		79C5A3A92B4BCAA000EC25BE /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		79C5A3AD2B4BCDBF00EC25BE /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
+		79C5A3B02B4BE7E400EC25BE /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
+		79C5A3B32B4D6A3400EC25BE /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		79C5A3B52B55188400EC25BE /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
+		79C5A3B92B5FE3DA00EC25BE /* FontConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConfig.swift; sourceTree = "<group>"; };
+		79C5A3BC2B5FED7800EC25BE /* DetailCoinTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoinTopView.swift; sourceTree = "<group>"; };
+		79C5A3BE2B5FEF4400EC25BE /* CoinInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInformationView.swift; sourceTree = "<group>"; };
+		79C5A3C12B5FF04200EC25BE /* MarketTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTopView.swift; sourceTree = "<group>"; };
+		79C5A3C32B5FF16E00EC25BE /* MarketValuationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketValuationView.swift; sourceTree = "<group>"; };
+		79C5A3C52B5FF25100EC25BE /* MarketColumnTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketColumnTitleView.swift; sourceTree = "<group>"; };
+		79C5A3C72B5FF30B00EC25BE /* MarketSortingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketSortingButtonView.swift; sourceTree = "<group>"; };
+		79C5A3CD2B67B35400EC25BE /* MarketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketError.swift; sourceTree = "<group>"; };
+		79C5A3CF2B67B38B00EC25BE /* OrderBookError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookError.swift; sourceTree = "<group>"; };
+		79CDA6822B36AF9B00633B65 /* BottomNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomNavigationView.swift; sourceTree = "<group>"; };
+		79CDA6862B36AFD900633B65 /* UIDevice+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+.swift"; sourceTree = "<group>"; };
+		79CDA6892B36B16E00633B65 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		79CDA68B2B36B1B500633B65 /* asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asset.png; sourceTree = "<group>"; };
+		79CDA68E2B36C02100633B65 /* AssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
+		79CDA6902B37F58000633B65 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		8D013B30DED23B68BE98E30D /* Pods_PurpleCoin_PurpleCoinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PurpleCoin_PurpleCoinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B78195EA0C025699F14B6D3 /* Pods-PurpleCoin-PurpleCoinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurpleCoin-PurpleCoinUITests.debug.xcconfig"; path = "Target Support Files/Pods-PurpleCoin-PurpleCoinUITests/Pods-PurpleCoin-PurpleCoinUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9CFA0BC7C5042A9760A84C84 /* Pods-PurpleCoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurpleCoin.release.xcconfig"; path = "Target Support Files/Pods-PurpleCoin/Pods-PurpleCoin.release.xcconfig"; sourceTree = "<group>"; };
+		BA8538E34C875980AD111D2D /* Pods-PurpleCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurpleCoin.debug.xcconfig"; path = "Target Support Files/Pods-PurpleCoin/Pods-PurpleCoin.debug.xcconfig"; sourceTree = "<group>"; };
+		C2426DB778797C47CDCD1CB9 /* Pods-PurpleCoin-PurpleCoinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurpleCoin-PurpleCoinUITests.release.xcconfig"; path = "Target Support Files/Pods-PurpleCoin-PurpleCoinUITests/Pods-PurpleCoin-PurpleCoinUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DE6DD89E6CBD599458A3CCF0 /* Pods-PurpleCoinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurpleCoinTests.debug.xcconfig"; path = "Target Support Files/Pods-PurpleCoinTests/Pods-PurpleCoinTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E66BB1E5033157A6F09D82C4 /* Pods_PurpleCoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PurpleCoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4092867D2B3515D100E89F62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3715EC89102183D524D6725 /* Pods_PurpleCoin.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		409286932B3515D300E89F62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C71EBA7FB50F1FBD4DDB2E2 /* Pods_PurpleCoinTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4092869D2B3515D300E89F62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				683B9D0C853020C7F9FAAF13 /* Pods_PurpleCoin_PurpleCoinUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		409286772B3515D100E89F62 = {
+			isa = PBXGroup;
+			children = (
+				409286822B3515D100E89F62 /* PurpleCoin */,
+				409286992B3515D300E89F62 /* PurpleCoinTests */,
+				409286A32B3515D300E89F62 /* PurpleCoinUITests */,
+				409286812B3515D100E89F62 /* Products */,
+				E1D1E726815D02C2F5E4517F /* Pods */,
+				92BE295D36BAADAE2550A61C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		409286812B3515D100E89F62 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				409286802B3515D100E89F62 /* PurpleCoin.app */,
+				409286962B3515D300E89F62 /* PurpleCoinTests.xctest */,
+				409286A02B3515D300E89F62 /* PurpleCoinUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		409286822B3515D100E89F62 /* PurpleCoin */ = {
+			isa = PBXGroup;
+			children = (
+				409286B32B3519BA00E89F62 /* Application */,
+				79C5A3B82B5D088F00EC25BE /* View */,
+				79C5A3B72B5D088500EC25BE /* ViewModel */,
+				79C5A3AB2B4BCDAB00EC25BE /* Domain */,
+				79C5A3A02B4BC82700EC25BE /* Services */,
+				409286D72B356D0E00E89F62 /* Resources */,
+				409286D82B356FE200E89F62 /* Common */,
+			);
+			path = PurpleCoin;
+			sourceTree = "<group>";
+		};
+		409286992B3515D300E89F62 /* PurpleCoinTests */ = {
+			isa = PBXGroup;
+			children = (
+				4092869A2B3515D300E89F62 /* PurpleCoinTests.swift */,
+			);
+			path = PurpleCoinTests;
+			sourceTree = "<group>";
+		};
+		409286A32B3515D300E89F62 /* PurpleCoinUITests */ = {
+			isa = PBXGroup;
+			children = (
+				409286A42B3515D300E89F62 /* PurpleCoinUITests.swift */,
+				409286A62B3515D300E89F62 /* PurpleCoinUITestsLaunchTests.swift */,
+			);
+			path = PurpleCoinUITests;
+			sourceTree = "<group>";
+		};
+		409286B32B3519BA00E89F62 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				409286832B3515D100E89F62 /* AppDelegate.swift */,
+				409286852B3515D100E89F62 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		409286BB2B351A7400E89F62 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				409286C12B351AF000E89F62 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		409286BF2B351AAF00E89F62 /* Market */ = {
+			isa = PBXGroup;
+			children = (
+				79A448D52B3871E800A18516 /* Cell */,
+				409286C52B351B0600E89F62 /* View */,
+			);
+			path = Market;
+			sourceTree = "<group>";
+		};
+		409286C02B351AC000E89F62 /* DetailCoin */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A39C2B4AF15B00EC25BE /* Cell */,
+				409286C32B351B0000E89F62 /* View */,
+			);
+			path = DetailCoin;
+			sourceTree = "<group>";
+		};
+		409286C12B351AF000E89F62 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				79CDA66E2B36A91300633B65 /* Sub */,
+				409286CB2B3567F500E89F62 /* MainView.swift */,
+				409286CD2B3567FB00E89F62 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		409286C32B351B0000E89F62 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A3BB2B5FED7200EC25BE /* Sub */,
+				409286D32B35695000E89F62 /* DetailCoinView.swift */,
+				409286D52B35695700E89F62 /* DetailCoinViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		409286C52B351B0600E89F62 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A3C02B5FF02800EC25BE /* Sub */,
+				409286CF2B3568D500E89F62 /* MarketView.swift */,
+				409286D12B3568DA00E89F62 /* MarketViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		409286D72B356D0E00E89F62 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				79CDA6882B36B16300633B65 /* Icon */,
+				409286912B3515D300E89F62 /* Info.plist */,
+				4092868E2B3515D300E89F62 /* LaunchScreen.storyboard */,
+				4092868C2B3515D300E89F62 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		409286D82B356FE200E89F62 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A3CC2B67B2B500EC25BE /* Error */,
+				79C5A3B22B4D69FE00EC25BE /* Helper */,
+				79C5A3A82B4BCA9700EC25BE /* Config */,
+				409286D92B35703000E89F62 /* Constants.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		79A448D52B3871E800A18516 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				79A448D62B3873B800A18516 /* CoinTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		79C5A39C2B4AF15B00EC25BE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A3A42B4BC95100EC25BE /* OrderBookTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		79C5A3A02B4BC82700EC25BE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A3A12B4BC83600EC25BE /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		79C5A3A12B4BC83600EC25BE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A3A22B4BC8ED00EC25BE /* API.swift */,
+				79C5A3A62B4BC9A800EC25BE /* APIService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		79C5A3A82B4BCA9700EC25BE /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A3A92B4BCAA000EC25BE /* NetworkConfig.swift */,
+				79C5A3B52B55188400EC25BE /* UserConfig.swift */,
+				79C5A3B92B5FE3DA00EC25BE /* FontConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		79C5A3AB2B4BCDAB00EC25BE /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A3AC2B4BCDB600EC25BE /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		79C5A3AC2B4BCDB600EC25BE /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A3AD2B4BCDBF00EC25BE /* Market.swift */,
+				402BDC382B50EC7400137E90 /* OrderBook.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		79C5A3B22B4D69FE00EC25BE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A3B32B4D6A3400EC25BE /* Formatter.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		79C5A3B72B5D088500EC25BE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				402BDC362B50E01400137E90 /* DetailCoinViewModel.swift */,
+				79C5A3B02B4BE7E400EC25BE /* MarketViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		79C5A3B82B5D088F00EC25BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				79CDA68D2B36C01600633B65 /* Asset */,
+				79CDA6732B36AB2800633B65 /* Utils */,
+				409286BB2B351A7400E89F62 /* Main */,
+				409286C02B351AC000E89F62 /* DetailCoin */,
+				409286BF2B351AAF00E89F62 /* Market */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		79C5A3BB2B5FED7200EC25BE /* Sub */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A3BC2B5FED7800EC25BE /* DetailCoinTopView.swift */,
+				79C5A3BE2B5FEF4400EC25BE /* CoinInformationView.swift */,
+			);
+			path = Sub;
+			sourceTree = "<group>";
+		};
+		79C5A3C02B5FF02800EC25BE /* Sub */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A3C12B5FF04200EC25BE /* MarketTopView.swift */,
+				79C5A3C32B5FF16E00EC25BE /* MarketValuationView.swift */,
+				79C5A3C52B5FF25100EC25BE /* MarketColumnTitleView.swift */,
+				79C5A3C72B5FF30B00EC25BE /* MarketSortingButtonView.swift */,
+			);
+			path = Sub;
+			sourceTree = "<group>";
+		};
+		79C5A3CC2B67B2B500EC25BE /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A3CD2B67B35400EC25BE /* MarketError.swift */,
+				79C5A3CF2B67B38B00EC25BE /* OrderBookError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		79CDA66E2B36A91300633B65 /* Sub */ = {
+			isa = PBXGroup;
+			children = (
+				79CDA6822B36AF9B00633B65 /* BottomNavigationView.swift */,
+			);
+			path = Sub;
+			sourceTree = "<group>";
+		};
+		79CDA6732B36AB2800633B65 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				79CDA6782B36AE2900633B65 /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		79CDA6782B36AE2900633B65 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				79CDA6862B36AFD900633B65 /* UIDevice+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		79CDA6882B36B16300633B65 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				79C5A39A2B4920B700EC25BE /* back.png */,
+				79C5A3932B46ED7200EC25BE /* star_filled.png */,
+				79C5A3982B46EF1600EC25BE /* star.png */,
+				79CDA6902B37F58000633B65 /* search.png */,
+				79CDA68B2B36B1B500633B65 /* asset.png */,
+				79CDA6892B36B16E00633B65 /* home.png */,
+			);
+			path = Icon;
+			sourceTree = "<group>";
+		};
+		79CDA68D2B36C01600633B65 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				79CDA68E2B36C02100633B65 /* AssetViewController.swift */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		92BE295D36BAADAE2550A61C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13891B952BD7B187B6A35270 /* Pods_PurpleCoin.framework */,
+				8D013B30DED23B68BE98E30D /* Pods_PurpleCoin_PurpleCoinUITests.framework */,
+				E66BB1E5033157A6F09D82C4 /* Pods_PurpleCoinTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1D1E726815D02C2F5E4517F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA8538E34C875980AD111D2D /* Pods-PurpleCoin.debug.xcconfig */,
+				9CFA0BC7C5042A9760A84C84 /* Pods-PurpleCoin.release.xcconfig */,
+				9B78195EA0C025699F14B6D3 /* Pods-PurpleCoin-PurpleCoinUITests.debug.xcconfig */,
+				C2426DB778797C47CDCD1CB9 /* Pods-PurpleCoin-PurpleCoinUITests.release.xcconfig */,
+				DE6DD89E6CBD599458A3CCF0 /* Pods-PurpleCoinTests.debug.xcconfig */,
+				70FED6C54BEADE5F81A7F666 /* Pods-PurpleCoinTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4092867F2B3515D100E89F62 /* PurpleCoin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 409286AA2B3515D300E89F62 /* Build configuration list for PBXNativeTarget "PurpleCoin" */;
+			buildPhases = (
+				472BECDB4FBCDF1EC1981556 /* [CP] Check Pods Manifest.lock */,
+				4092867C2B3515D100E89F62 /* Sources */,
+				4092867D2B3515D100E89F62 /* Frameworks */,
+				4092867E2B3515D100E89F62 /* Resources */,
+				6E43AB97BF916C55CAD7E525 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PurpleCoin;
+			productName = PurpleCoin;
+			productReference = 409286802B3515D100E89F62 /* PurpleCoin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		409286952B3515D300E89F62 /* PurpleCoinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 409286AD2B3515D300E89F62 /* Build configuration list for PBXNativeTarget "PurpleCoinTests" */;
+			buildPhases = (
+				5102FE9A8B41EE7093497886 /* [CP] Check Pods Manifest.lock */,
+				409286922B3515D300E89F62 /* Sources */,
+				409286932B3515D300E89F62 /* Frameworks */,
+				409286942B3515D300E89F62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				409286982B3515D300E89F62 /* PBXTargetDependency */,
+			);
+			name = PurpleCoinTests;
+			productName = PurpleCoinTests;
+			productReference = 409286962B3515D300E89F62 /* PurpleCoinTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4092869F2B3515D300E89F62 /* PurpleCoinUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 409286B02B3515D300E89F62 /* Build configuration list for PBXNativeTarget "PurpleCoinUITests" */;
+			buildPhases = (
+				02E7EE66A7C2276043392AE2 /* [CP] Check Pods Manifest.lock */,
+				4092869C2B3515D300E89F62 /* Sources */,
+				4092869D2B3515D300E89F62 /* Frameworks */,
+				4092869E2B3515D300E89F62 /* Resources */,
+				EB40528E558622D705B227DC /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				409286A22B3515D300E89F62 /* PBXTargetDependency */,
+			);
+			name = PurpleCoinUITests;
+			productName = PurpleCoinUITests;
+			productReference = 409286A02B3515D300E89F62 /* PurpleCoinUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		409286782B3515D100E89F62 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					4092867F2B3515D100E89F62 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					409286952B3515D300E89F62 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 4092867F2B3515D100E89F62;
+					};
+					4092869F2B3515D300E89F62 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 4092867F2B3515D100E89F62;
+					};
+				};
+			};
+			buildConfigurationList = 4092867B2B3515D100E89F62 /* Build configuration list for PBXProject "PurpleCoin" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 409286772B3515D100E89F62;
+			productRefGroup = 409286812B3515D100E89F62 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4092867F2B3515D100E89F62 /* PurpleCoin */,
+				409286952B3515D300E89F62 /* PurpleCoinTests */,
+				4092869F2B3515D300E89F62 /* PurpleCoinUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4092867E2B3515D100E89F62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79CDA6912B37F58000633B65 /* search.png in Resources */,
+				79CDA68C2B36B1B500633B65 /* asset.png in Resources */,
+				409286902B3515D300E89F62 /* LaunchScreen.storyboard in Resources */,
+				79C5A3952B46ED7200EC25BE /* star_filled.png in Resources */,
+				79C5A39B2B4920B700EC25BE /* back.png in Resources */,
+				79C5A3992B46EF1600EC25BE /* star.png in Resources */,
+				4092868D2B3515D300E89F62 /* Assets.xcassets in Resources */,
+				79CDA68A2B36B16F00633B65 /* home.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		409286942B3515D300E89F62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4092869E2B3515D300E89F62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02E7EE66A7C2276043392AE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PurpleCoin-PurpleCoinUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		472BECDB4FBCDF1EC1981556 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PurpleCoin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5102FE9A8B41EE7093497886 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PurpleCoinTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E43AB97BF916C55CAD7E525 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PurpleCoin/Pods-PurpleCoin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PurpleCoin/Pods-PurpleCoin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PurpleCoin/Pods-PurpleCoin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB40528E558622D705B227DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PurpleCoin-PurpleCoinUITests/Pods-PurpleCoin-PurpleCoinUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PurpleCoin-PurpleCoinUITests/Pods-PurpleCoin-PurpleCoinUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PurpleCoin-PurpleCoinUITests/Pods-PurpleCoin-PurpleCoinUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4092867C2B3515D100E89F62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				409286CC2B3567F500E89F62 /* MainView.swift in Sources */,
+				79C5A3BD2B5FED7800EC25BE /* DetailCoinTopView.swift in Sources */,
+				409286D02B3568D500E89F62 /* MarketView.swift in Sources */,
+				79C5A3B42B4D6A3400EC25BE /* Formatter.swift in Sources */,
+				79CDA6872B36AFD900633B65 /* UIDevice+.swift in Sources */,
+				79C5A3B12B4BE7E400EC25BE /* MarketViewModel.swift in Sources */,
+				409286D42B35695000E89F62 /* DetailCoinView.swift in Sources */,
+				79C5A3A32B4BC8ED00EC25BE /* API.swift in Sources */,
+				79C5A3AA2B4BCAA000EC25BE /* NetworkConfig.swift in Sources */,
+				79C5A3BA2B5FE3DA00EC25BE /* FontConfig.swift in Sources */,
+				409286842B3515D100E89F62 /* AppDelegate.swift in Sources */,
+				79C5A3C82B5FF30B00EC25BE /* MarketSortingButtonView.swift in Sources */,
+				79C5A3CE2B67B35400EC25BE /* MarketError.swift in Sources */,
+				79C5A3D02B67B38B00EC25BE /* OrderBookError.swift in Sources */,
+				79C5A3B62B55188400EC25BE /* UserConfig.swift in Sources */,
+				79C5A3A72B4BC9A800EC25BE /* APIService.swift in Sources */,
+				79C5A3A52B4BC95100EC25BE /* OrderBookTableViewCell.swift in Sources */,
+				79C5A3BF2B5FEF4400EC25BE /* CoinInformationView.swift in Sources */,
+				409286D62B35695700E89F62 /* DetailCoinViewController.swift in Sources */,
+				79C5A3C62B5FF25100EC25BE /* MarketColumnTitleView.swift in Sources */,
+				409286862B3515D100E89F62 /* SceneDelegate.swift in Sources */,
+				402BDC392B50EC7400137E90 /* OrderBook.swift in Sources */,
+				79CDA68F2B36C02100633B65 /* AssetViewController.swift in Sources */,
+				79CDA6832B36AF9B00633B65 /* BottomNavigationView.swift in Sources */,
+				402BDC372B50E01400137E90 /* DetailCoinViewModel.swift in Sources */,
+				79C5A3C22B5FF04200EC25BE /* MarketTopView.swift in Sources */,
+				79C5A3C42B5FF16E00EC25BE /* MarketValuationView.swift in Sources */,
+				79A448D72B3873B800A18516 /* CoinTableViewCell.swift in Sources */,
+				409286D22B3568DA00E89F62 /* MarketViewController.swift in Sources */,
+				409286DA2B35703000E89F62 /* Constants.swift in Sources */,
+				409286CE2B3567FB00E89F62 /* MainViewController.swift in Sources */,
+				79C5A3AE2B4BCDBF00EC25BE /* Market.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		409286922B3515D300E89F62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4092869B2B3515D300E89F62 /* PurpleCoinTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4092869C2B3515D300E89F62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				409286A52B3515D300E89F62 /* PurpleCoinUITests.swift in Sources */,
+				409286A72B3515D300E89F62 /* PurpleCoinUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		409286982B3515D300E89F62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4092867F2B3515D100E89F62 /* PurpleCoin */;
+			targetProxy = 409286972B3515D300E89F62 /* PBXContainerItemProxy */;
+		};
+		409286A22B3515D300E89F62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4092867F2B3515D100E89F62 /* PurpleCoin */;
+			targetProxy = 409286A12B3515D300E89F62 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4092868E2B3515D300E89F62 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4092868F2B3515D300E89F62 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		409286A82B3515D300E89F62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		409286A92B3515D300E89F62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		409286AB2B3515D300E89F62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA8538E34C875980AD111D2D /* Pods-PurpleCoin.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CHW94B5XTB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PurpleCoin/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kang.PurpleCoin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		409286AC2B3515D300E89F62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CFA0BC7C5042A9760A84C84 /* Pods-PurpleCoin.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CHW94B5XTB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PurpleCoin/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kang.PurpleCoin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		409286AE2B3515D300E89F62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE6DD89E6CBD599458A3CCF0 /* Pods-PurpleCoinTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CHW94B5XTB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kang.PurpleCoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PurpleCoin.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PurpleCoin";
+			};
+			name = Debug;
+		};
+		409286AF2B3515D300E89F62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70FED6C54BEADE5F81A7F666 /* Pods-PurpleCoinTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CHW94B5XTB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kang.PurpleCoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PurpleCoin.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PurpleCoin";
+			};
+			name = Release;
+		};
+		409286B12B3515D300E89F62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B78195EA0C025699F14B6D3 /* Pods-PurpleCoin-PurpleCoinUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CHW94B5XTB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kang.PurpleCoinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PurpleCoin;
+			};
+			name = Debug;
+		};
+		409286B22B3515D300E89F62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2426DB778797C47CDCD1CB9 /* Pods-PurpleCoin-PurpleCoinUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CHW94B5XTB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kang.PurpleCoinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PurpleCoin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4092867B2B3515D100E89F62 /* Build configuration list for PBXProject "PurpleCoin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				409286A82B3515D300E89F62 /* Debug */,
+				409286A92B3515D300E89F62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		409286AA2B3515D300E89F62 /* Build configuration list for PBXNativeTarget "PurpleCoin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				409286AB2B3515D300E89F62 /* Debug */,
+				409286AC2B3515D300E89F62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		409286AD2B3515D300E89F62 /* Build configuration list for PBXNativeTarget "PurpleCoinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				409286AE2B3515D300E89F62 /* Debug */,
+				409286AF2B3515D300E89F62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		409286B02B3515D300E89F62 /* Build configuration list for PBXNativeTarget "PurpleCoinUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				409286B12B3515D300E89F62 /* Debug */,
+				409286B22B3515D300E89F62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 409286782B3515D100E89F62 /* Project object */;
+}
