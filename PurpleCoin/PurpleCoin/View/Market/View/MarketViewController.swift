@@ -14,10 +14,23 @@ final class MarketViewController: UIViewController {
         case intrested
     }
     
+    let apiService: APIService
+    
     let marketView = MarketView()
-    let viewModel = MarketViewModel()
+    lazy var viewModel = MarketViewModel(apiService: apiService)
     
     var sortingType: SortingType = .all
+    var marketDatas: [MarketData]?
+    var allMarketCodes: [MarketCode]?
+    
+    init(apiService: APIService) {
+        self.apiService = apiService
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = marketView
@@ -46,21 +59,27 @@ final class MarketViewController: UIViewController {
     }
     
     func getKRWMarketData() {
-        viewModel.getKRWMarketData { err in
-            if err == nil {
+        Task {
+            do {
+                let marketCodes = try await viewModel.getAllMarketCode()
+                self.allMarketCodes = marketCodes
+                let marketDatas = try await viewModel.getMarketData(marketCodes: marketCodes)
+                self.marketDatas = marketDatas
                 self.marketView.coinTableView.reloadData()
-            } else {
-                
+            } catch {
+                print(error)
             }
         }
     }
     
     func getSpecificMarketData() {
-        viewModel.getMarketData(marketCodes: UserConfig.shared.intrestedCoins) { err in
-            if err == nil {
+        Task {
+            do {
+                let marketDatas = try await viewModel.getMarketData(marketCodes: UserConfig.shared.intrestedCoins)
+                self.marketDatas = marketDatas
                 self.marketView.coinTableView.reloadData()
-            } else {
-                
+            } catch {
+                print(error)
             }
         }
     }
@@ -74,7 +93,7 @@ extension MarketViewController {
     }
     
     @objc func sortingButtonTapped(_ sender: UIButton) {
-        guard let _ = viewModel.marketData else {
+        guard let _ = marketDatas else {
             return
         }
         [marketView.sortingButtonView.sortingOfAllButton, marketView.sortingButtonView.sortingOfIntrestButton].forEach {
@@ -101,13 +120,13 @@ extension MarketViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.marketData?.count ?? 0
+        return marketDatas?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CoinTableViewCell(style: CoinTableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        guard let marketDatas = viewModel.marketData,
-              let marketCodes = viewModel.allMarketCode
+        guard let marketDatas = marketDatas,
+              let marketCodes = allMarketCodes
         else {
             return UITableViewCell()
         }
@@ -156,7 +175,7 @@ extension MarketViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         func cellTapAction(index: Int) {
-            let vc = DetailCoinViewController(krwName: formattedData.krwCoinName, marketCode: marketData.market)
+            let vc = DetailCoinViewController(krwName: formattedData.krwCoinName, marketCode: marketData.market, apiService: apiService)
             navigationController?.pushViewController(vc, animated: true)
         }
     }

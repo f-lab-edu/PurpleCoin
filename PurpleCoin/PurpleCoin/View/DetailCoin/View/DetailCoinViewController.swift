@@ -9,10 +9,15 @@ import UIKit
 
 class DetailCoinViewController: UIViewController {
     
-    let detailCoinView = DetailCoinView()
-    let viewModel = DetailCoinViewModel()
+    let apiService: APIService
     var marketCode: String
     var krwName: String
+    
+    let detailCoinView = DetailCoinView()
+    lazy var viewModel = DetailCoinViewModel(apiService: apiService)
+    
+    var marketData: MarketData?
+    var orderBookData: OrderBook?
     
     override func loadView() {
         super.loadView()
@@ -21,29 +26,27 @@ class DetailCoinViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getMarketData(marketCode: marketCode) { [self] _ in
-            detailCoinView.setAttributes(krwName: krwName, marketData: viewModel.marketData)
-            viewModel.getOrderBookData(marketCode: marketCode) { [self] error in
-                if let error = error {
-                    switch error {
-                    case .decodingError:
-                        self.showAlert(message: "디코딩 에러")
-                    case .orderBookFetchingError:
-                        self.showAlert(message: "호가정보 패치 에러")
-                    }
-                } else {
-                    detailCoinView.orderBookTableView.reloadData()
-                }
-            }
-        }
         bindAction()
         setTableView()
         setInterestButton()
+        Task {
+            do {
+                let marketData = try await viewModel.getMarketData(marketCode: marketCode)
+                self.marketData = marketData
+                detailCoinView.setAttributes(krwName: krwName, marketData: marketData)
+                let orderBookData = try await viewModel.getOrderBookData(marketCode: marketCode)
+                self.orderBookData = orderBookData
+                detailCoinView.orderBookTableView.reloadData()
+            } catch {
+                print("Error: \(error)")
+            }
+        }
     }
     
-    init(krwName: String, marketCode: String) {
+    init(krwName: String, marketCode: String, apiService: APIService) {
         self.krwName = krwName
         self.marketCode = marketCode
+        self.apiService = apiService
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -101,13 +104,13 @@ extension DetailCoinViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (viewModel.orderBookData?.orderbookUnits.count ?? 0) * 2
+        return (orderBookData?.orderbookUnits.count ?? 0) * 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = OrderBookTableViewCell(style: OrderBookTableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        guard let marketData = viewModel.marketData,
-              let orderBookData = viewModel.orderBookData
+        guard let marketData = marketData,
+              let orderBookData = orderBookData
         else {
             return UITableViewCell()
         }

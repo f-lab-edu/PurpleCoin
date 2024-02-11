@@ -6,21 +6,27 @@
 //
 
 import UIKit
+import DIContainer_swift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     public var navController = UINavigationController()
-    var mainViewController = UIViewController()
+    var mainViewController: UIViewController?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        mainViewController = MainViewController()
-        self.navController = UINavigationController(rootViewController: self.mainViewController)
-        self.navController.navigationBar.isHidden = true
-        self.window?.rootViewController = self.navController
-        self.window?.makeKeyAndVisible()
+        do {
+            let apiService: APIService = try Container.standard.resolve(.by(type: APIService.self,  key: NetworkServiceConfig.upbitDIKey))
+            mainViewController = MainViewController(apiService: apiService)
+            self.navController = UINavigationController(rootViewController: mainViewController!)
+            self.navController.navigationBar.isHidden = true
+            self.window?.rootViewController = self.navController
+            self.window?.makeKeyAndVisible()
+        } catch let err {
+            print(err)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

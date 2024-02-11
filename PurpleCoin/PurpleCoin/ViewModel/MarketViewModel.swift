@@ -8,66 +8,58 @@
 import Foundation
 
 final class MarketViewModel {
-    var marketData: [MarketData]?
-    var allMarketCode: [MarketCode]?
+    let apiService: APIService
+    
+    init(apiService: APIService) {
+        self.apiService = apiService
+    }
 }
 
 // 코인 정보 가져오기
 extension MarketViewModel {
-    //한국 코인 정보가져오기
-    func getKRWMarketData(completion: @escaping ((MarketError?) -> Void)) {
-        getAllMarketCode { result in
-            switch result {
-            case .success(let data):
-                self.getMarketData(marketCodes: data) { result in
-                    switch result {
-                    case .success(let data):
-                        self.marketData = data
-                        completion(nil)
-                    case .failure(_):
-                        completion(.marketDataFetchingError)
-                    }
-                }
-            case .failure(_):
-                completion(.marketCodeFetchingError)
-            }
-        }
-    }
     
     // 전체 마켓 코드 가져오기
-    func getAllMarketCode(completion: @escaping ((Result<[MarketCode], Error>) -> Void)) {
-        APIService().getAllMarketCode { result in
-            completion(result)
+    func getAllMarketCode() async throws -> [MarketCode] {
+        do {
+            let marketCodes = try await apiService.getAllMarketCode()
+            return marketCodes
+        } catch {
+            throw error
         }
+
     }
     
     // 코인 정보 가져오기 - [MarketCode]
-    func getMarketData(marketCodes: [MarketCode], completion: @escaping (Result<[MarketData], Error>) -> Void) {
-        let convertedMarketCode = self.sortingMarketCode(markets: marketCodes)
-        APIService().getMarketData(marketCodes: convertedMarketCode, completion: completion)
+    func getMarketData(marketCodes: [MarketCode]) async throws -> [MarketData] {
+        let maskedMarketCode = self.maskKRWMarketCode(markets: marketCodes)
+        do {
+            let marketData = try await apiService.getMarketData(marketCodes: maskedMarketCode)
+            return marketData
+        } catch {
+            throw error
+        }
     }
     
     // 코인 정보 가져오기 - [String]
-    func getMarketData(marketCodes: [String], completion: @escaping ((MarketError?) -> Void)) {
-        let convertedMarketCode = marketCodes.joined(separator: ", ")
-        print(convertedMarketCode)
-        APIService().getMarketData(marketCodes: convertedMarketCode) { result in
-            switch result {
-            case .success(let data):
-                self.marketData = data
-                completion(nil)
-            case .failure(_):
-                completion(.marketDataFetchingError)
-            }
+    func getMarketData(marketCodes: [String]) async throws -> [MarketData] {
+        let convertedMarketCode = convertArrToStr(marketCodes)
+        do {
+            let marketData = try await apiService.getMarketData(marketCodes: convertedMarketCode)
+            return marketData
+        } catch {
+            throw error
         }
     }
     
     //KRW 코인코드 배열 -> string
-    func sortingMarketCode(markets: [MarketCode]) -> String{
+    func maskKRWMarketCode(markets: [MarketCode]) -> String{
         let KRWMarkets = markets.filter { market in
             market.market.contains("KRW-")
         }
-        allMarketCode = KRWMarkets
         return KRWMarkets.map { $0.market }.joined(separator: ", ")
+    }
+    
+    func convertArrToStr(_ strArr: [String]) -> String{
+        return strArr.joined(separator: ", ")
     }
 }

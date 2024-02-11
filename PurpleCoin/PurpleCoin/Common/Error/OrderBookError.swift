@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 enum OrderBookError: Error {
     //호가 정보 에러
     case orderBookFetchingError

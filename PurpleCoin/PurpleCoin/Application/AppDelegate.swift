@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import DIContainer_swift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Container.standard.register(type: APIService.self, key: NetworkServiceConfig.upbitDIKey) { _ in
+            UpbitService()
+        }
         return true
     }
 

@@ -45,6 +45,7 @@
 		79C5A3C82B5FF30B00EC25BE /* MarketSortingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3C72B5FF30B00EC25BE /* MarketSortingButtonView.swift */; };
 		79C5A3CE2B67B35400EC25BE /* MarketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3CD2B67B35400EC25BE /* MarketError.swift */; };
 		79C5A3D02B67B38B00EC25BE /* OrderBookError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3CF2B67B38B00EC25BE /* OrderBookError.swift */; };
+		79C5A3D62B76368200EC25BE /* MarketCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5A3D52B76368200EC25BE /* MarketCodeError.swift */; };
 		79CDA6832B36AF9B00633B65 /* BottomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CDA6822B36AF9B00633B65 /* BottomNavigationView.swift */; };
 		79CDA6872B36AFD900633B65 /* UIDevice+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CDA6862B36AFD900633B65 /* UIDevice+.swift */; };
 		79CDA68A2B36B16F00633B65 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 79CDA6892B36B16E00633B65 /* home.png */; };
@@ -116,6 +117,7 @@
 		79C5A3C72B5FF30B00EC25BE /* MarketSortingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketSortingButtonView.swift; sourceTree = "<group>"; };
 		79C5A3CD2B67B35400EC25BE /* MarketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketError.swift; sourceTree = "<group>"; };
 		79C5A3CF2B67B38B00EC25BE /* OrderBookError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookError.swift; sourceTree = "<group>"; };
+		79C5A3D52B76368200EC25BE /* MarketCodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCodeError.swift; sourceTree = "<group>"; };
 		79CDA6822B36AF9B00633B65 /* BottomNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomNavigationView.swift; sourceTree = "<group>"; };
 		79CDA6862B36AFD900633B65 /* UIDevice+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+.swift"; sourceTree = "<group>"; };
 		79CDA6892B36B16E00633B65 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 			children = (
 				79C5A3CD2B67B35400EC25BE /* MarketError.swift */,
 				79C5A3CF2B67B38B00EC25BE /* OrderBookError.swift */,
+				79C5A3D52B76368200EC25BE /* MarketCodeError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				409286D62B35695700E89F62 /* DetailCoinViewController.swift in Sources */,
 				79C5A3C62B5FF25100EC25BE /* MarketColumnTitleView.swift in Sources */,
 				409286862B3515D100E89F62 /* SceneDelegate.swift in Sources */,
+				79C5A3D62B76368200EC25BE /* MarketCodeError.swift in Sources */,
 				402BDC392B50EC7400137E90 /* OrderBook.swift in Sources */,
 				79CDA68F2B36C02100633B65 /* AssetViewController.swift in Sources */,
 				79CDA6832B36AF9B00633B65 /* BottomNavigationView.swift in Sources */,

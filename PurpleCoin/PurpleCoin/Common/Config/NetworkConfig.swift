@@ -11,3 +11,11 @@ enum NetworkConfig {
     //base URL
     static let baseURL = "https://api.upbit.com/v1"
 }
+
+enum NetworkServiceConfig {
+    //업비트 DI Key
+    static let upbitDIKey = "Upbit"
+    //mockServer DI Key
+    static let mockDIKey = "Mock"
+}
+

@@ -20,11 +20,11 @@ class MainViewController: UIViewController {
                               height: ScreenFigure.bounds.height
     )
     
-    
     let mainView = MainView()
+    let apiService: APIService
     
     lazy var marketViewController: MarketViewController = {
-        let vc = MarketViewController()
+        let vc = MarketViewController(apiService: apiService)
         vc.additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: ScreenFigure.bottomNavigationViewHeight(), right: 0)
         vc.view.frame = childVCFrame
         return vc
@@ -35,6 +35,15 @@ class MainViewController: UIViewController {
         vc.view.frame = childVCFrame
         return vc
     }()
+    
+    init(apiService: APIService) {
+        self.apiService = apiService
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = mainView
