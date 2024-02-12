@@ -24,6 +24,7 @@ extension MarketViewModel {
             let marketCodes = try await apiService.getAllMarketCode()
             return marketCodes
         } catch {
+            print("Error: \(error)")
             throw error
         }
 
@@ -36,6 +37,7 @@ extension MarketViewModel {
             let marketData = try await apiService.getMarketData(marketCodes: maskedMarketCode)
             return marketData
         } catch {
+            print("Error: \(error)")
             throw error
         }
     }
@@ -47,12 +49,13 @@ extension MarketViewModel {
             let marketData = try await apiService.getMarketData(marketCodes: convertedMarketCode)
             return marketData
         } catch {
+            print("Error: \(error)")
             throw error
         }
     }
     
     //KRW 코인코드 배열 -> string
-    func maskKRWMarketCode(markets: [MarketCode]) -> String{
+    func maskKRWMarketCode(markets: [MarketCode]) -> String {
         let KRWMarkets = markets.filter { market in
             market.market.contains("KRW-")
         }

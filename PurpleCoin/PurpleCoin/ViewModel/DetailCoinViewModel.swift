@@ -23,6 +23,7 @@ extension DetailCoinViewModel {
             let marketData = try await apiService.getMarketData(marketCodes: marketCode)
             return marketData.first!
         } catch {
+            print("Error: \(error)")
             throw error
         }
     }
@@ -32,6 +33,7 @@ extension DetailCoinViewModel {
             let orderBookData = try await apiService.getOrderBookData(marketCodes: marketCode)
             return orderBookData.first!
         } catch {
+            print("Error: \(error)")
             throw error
         }
     }

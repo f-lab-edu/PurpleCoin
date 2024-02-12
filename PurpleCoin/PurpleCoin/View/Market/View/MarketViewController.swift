@@ -63,8 +63,7 @@ final class MarketViewController: UIViewController {
             do {
                 let marketCodes = try await viewModel.getAllMarketCode()
                 self.allMarketCodes = marketCodes
-                let marketDatas = try await viewModel.getMarketData(marketCodes: marketCodes)
-                self.marketDatas = marketDatas
+                self.marketDatas = try await viewModel.getMarketData(marketCodes: marketCodes)
                 self.marketView.coinTableView.reloadData()
             } catch {
                 print(error)
@@ -75,8 +74,7 @@ final class MarketViewController: UIViewController {
     func getSpecificMarketData() {
         Task {
             do {
-                let marketDatas = try await viewModel.getMarketData(marketCodes: UserConfig.shared.intrestedCoins)
-                self.marketDatas = marketDatas
+                self.marketDatas = try await viewModel.getMarketData(marketCodes: UserConfig.shared.intrestedCoins)
                 self.marketView.coinTableView.reloadData()
             } catch {
                 print(error)
