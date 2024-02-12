@@ -17,7 +17,8 @@ final class MarketViewController: UIViewController {
     let apiService: APIService
     
     let marketView = MarketView()
-    lazy var viewModel = MarketViewModel(apiService: apiService)
+    let viewModel: KRWMarkeData
+    let marketDataFetcher: MarketDataFetcher
     
     var sortingType: SortingType = .all
     var marketDatas: [MarketData]?
@@ -25,6 +26,9 @@ final class MarketViewController: UIViewController {
     
     init(apiService: APIService) {
         self.apiService = apiService
+        self.viewModel = KRWMarkeData(apiService: apiService)
+        self.marketDataFetcher = self.viewModel
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -61,9 +65,9 @@ final class MarketViewController: UIViewController {
     func getKRWMarketData() {
         Task {
             do {
-                let marketCodes = try await viewModel.getAllMarketCode()
+                let marketCodes = await viewModel.marketCodeManager.readMarketCode()
                 self.allMarketCodes = marketCodes
-                self.marketDatas = try await viewModel.getMarketData(marketCodes: marketCodes)
+                self.marketDatas = try await marketDataFetcher.getMarketData(marketCodes: marketCodes)
                 self.marketView.coinTableView.reloadData()
             } catch {
                 print(error)
@@ -74,7 +78,7 @@ final class MarketViewController: UIViewController {
     func getSpecificMarketData() {
         Task {
             do {
-                self.marketDatas = try await viewModel.getMarketData(marketCodes: UserConfig.shared.intrestedCoins)
+                self.marketDatas = try await marketDataFetcher.getMarketData(marketCodes: UserConfig.shared.intrestedCoins)
                 self.marketView.coinTableView.reloadData()
             } catch {
                 print(error)
