@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailCoinViewController: UIViewController {
+final class DetailCoinViewController: UIViewController {
     
     let apiService: APIService
     var marketCode: String
@@ -21,7 +21,7 @@ class DetailCoinViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        view = detailCoinView
+        configureView()
     }
 
     override func viewDidLoad() {
@@ -29,15 +29,8 @@ class DetailCoinViewController: UIViewController {
         bindAction()
         setTableView()
         setInterestButton()
-        Task {
-            do {
-                self.marketData = try await viewModel.getMarketData(marketCode: marketCode)
-                detailCoinView.setAttributes(krwName: krwName, marketData: marketData)
-                self.orderBookData = try await viewModel.getOrderBookData(marketCode: marketCode)
-                detailCoinView.orderBookTableView.reloadData()
-            } catch {
-                print("Error: \(error)")
-            }
+        fetchData {
+            self.detailCoinView.orderBookTableView.reloadData()
         }
     }
     
@@ -52,6 +45,10 @@ class DetailCoinViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configureView() {
+        view = detailCoinView
+    }
+    
     func setTableView() {
         detailCoinView.orderBookTableView.register(OrderBookTableViewCell.self, forCellReuseIdentifier: "cell")
         detailCoinView.orderBookTableView.delegate = self
@@ -60,6 +57,19 @@ class DetailCoinViewController: UIViewController {
     
     func setInterestButton() {
         detailCoinView.topView.interestButton.isSelected = UserConfig.shared.intrestedCoins.contains(marketCode)
+    }
+    
+    func fetchData(completion: @escaping () -> Void) {
+        Task {
+            do {
+                self.marketData = try await viewModel.getMarketData(marketCode: marketCode)
+                detailCoinView.setAttributes(krwName: krwName, marketData: marketData)
+                self.orderBookData = try await viewModel.getOrderBookData(marketCode: marketCode)
+                completion()
+            } catch {
+                print("Error: \(error)")
+            }
+        }
     }
     
     func showAlert(message: String) {
@@ -106,11 +116,11 @@ extension DetailCoinViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = OrderBookTableViewCell(style: .default, reuseIdentifier: "cell")
-        
         guard let marketData = marketData, let orderBookData = orderBookData else {
             return UITableViewCell()
         }
+        
+        let cell = OrderBookTableViewCell(style: .default, reuseIdentifier: "cell")
         
         let orderBookUnits = orderBookData.orderbookUnits
         let isAsk = checkAsk(indexPath: indexPath, orderBookUnitsCount: orderBookUnits.count)
@@ -123,23 +133,25 @@ extension DetailCoinViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     private func bindData(cell: OrderBookTableViewCell, orderBookUnit: OrderBookUnit, isAsk: Bool, marketData: MarketData, orderBookData: OrderBook) {
-        let formattedData = formatData(orderBookUnit: orderBookUnit, isAsk: isAsk, marketData: marketData)
+        let price = isAsk ? orderBookUnit.askPrice : orderBookUnit.bidPrice
+        let size = isAsk ? orderBookUnit.askSize : orderBookUnit.bidSize
+        let formattedData = formatData(price: price, marketData: marketData, size: size)
+        let ratio = isAsk ? orderBookUnit.askSize / orderBookData.totalAskSize : orderBookUnit.bidSize / orderBookData.totalBidSize
+        
         cell.priceLabel.text = formattedData.price
         cell.amountLabel.text = formattedData.size
         cell.percentageLabel.text = formattedData.dtdPercentage
         
-        let ratio = isAsk ? orderBookUnit.askSize / orderBookData.totalAskSize : orderBookUnit.bidSize / orderBookData.totalBidSize
         cell.barView.snp.makeConstraints {
             $0.width.equalTo(ScreenFigure.bounds.width * ratio)
         }
     }
 
-    private func formatData(orderBookUnit: OrderBookUnit, isAsk: Bool, marketData: MarketData) -> (price: String, dtdPercentage: String, size: String) {
-        let price = isAsk ? orderBookUnit.askPrice : orderBookUnit.bidPrice
-        return (
+    private func formatData(price: Double, marketData: MarketData, size: Double) -> FormattedOrderBookData {
+        FormattedOrderBookData (
             price: Formatter.formatNumberWithCustomRules(for: price),
             dtdPercentage: Formatter.truncateToTwoDecimals(for: (price - marketData.openingPrice) / marketData.openingPrice * 100) + "%",
-            size: Formatter.formatNumberWithCustomRules(for: isAsk ? orderBookUnit.askSize : orderBookUnit.bidSize)
+            size: Formatter.formatNumberWithCustomRules(for: size)
         )
     }
 
@@ -179,5 +191,16 @@ extension DetailCoinViewController: UITableViewDelegate, UITableViewDataSource {
     private func getOrderBookUnit(indexPath: IndexPath, orderBookUnits: [OrderBookUnit], isAsk: Bool) -> OrderBookUnit {
         return isAsk ? orderBookUnits.reversed()[indexPath.row] : orderBookUnits[indexPath.row - orderBookUnits.count]
     }
+}
 
+struct FormattedOrderBookData {
+    let price: String
+    let dtdPercentage: String
+    let size: String
+    
+    init(price: String, dtdPercentage: String, size: String) {
+        self.price = price
+        self.dtdPercentage = dtdPercentage
+        self.size = size
+    }
 }

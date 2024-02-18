@@ -46,13 +46,17 @@ class MainViewController: UIViewController {
     }
     
     override func loadView() {
-        view = mainView
+        configureView()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         bindAction()
         changeDisplayingVC()
+    }
+    
+    func configureView() {
+        view = mainView
     }
     
     func changeDisplayingVC() {

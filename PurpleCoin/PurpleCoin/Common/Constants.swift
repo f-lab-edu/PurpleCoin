@@ -33,7 +33,7 @@ enum ScreenFigure {
 }
 
 enum PurpleCoinFont {
-    enum fontType: String {
+    enum FontType: String {
         case extraBold = "ExtraBold"
         case bold = "BOLD"
         case semibold = "SEMIBOLD"
@@ -41,7 +41,7 @@ enum PurpleCoinFont {
         case light = "LIGHT"
         case regular = "REGULAR"
     }
-    static func font(type: fontType, size: CGFloat) -> UIFont {
+    static func font(type: FontType, size: CGFloat) -> UIFont {
         let fontSize = size * ScreenFigure.Ratio.HRatioValue
         let fontName = FontConfig.baseFont + type.rawValue
         guard let font = UIFont(name: fontName, size: fontSize) else {

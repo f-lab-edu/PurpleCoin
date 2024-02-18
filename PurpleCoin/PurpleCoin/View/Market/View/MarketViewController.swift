@@ -28,7 +28,6 @@ final class MarketViewController: UIViewController {
         self.apiService = apiService
         self.viewModel = KRWMarkeData(apiService: apiService)
         self.marketDataFetcher = self.viewModel
-        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -37,23 +36,31 @@ final class MarketViewController: UIViewController {
     }
     
     override func loadView() {
-        view = marketView
+        congifureView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        switch sortingType {
-        case .all:
-            getKRWMarketData()
-        case .intrested:
-            getSpecificMarketData()
-        }
+        fetchDataWithType()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindAction()
         setTableView()
+    }
+    
+    func congifureView() {
+        view = marketView
+    }
+    
+    func fetchDataWithType() {
+        switch sortingType {
+        case .all:
+            getKRWMarketData()
+        case .intrested:
+            getSpecificMarketData()
+        }
     }
     
     func setTableView() {
@@ -165,8 +172,8 @@ extension MarketViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         // 데이터 포멧
-        func formattData() -> (krwCoinName: String, englishCoinName: String, currentPrice: String, dtdPercentage: String, dtdPrice: String, transactionPrice: String) {
-            return (
+        func formattData() -> FormmatedMarketData {
+            FormmatedMarketData (
                 krwCoinName: marketCodes.first {$0.market == marketData.market}?.koreanName ?? "??",
                 englishCoinName: Formatter.convertEngCoinName(marketData.market),
                 currentPrice: Formatter.formatNumberWithCustomRules(for: marketData.tradePrice),
@@ -180,5 +187,23 @@ extension MarketViewController: UITableViewDelegate, UITableViewDataSource {
             let vc = DetailCoinViewController(krwName: formattedData.krwCoinName, marketCode: marketData.market, apiService: apiService)
             navigationController?.pushViewController(vc, animated: true)
         }
+    }
+}
+
+struct FormmatedMarketData {
+    let krwCoinName: String
+    let englishCoinName: String
+    let currentPrice: String
+    let dtdPercentage: String
+    let dtdPrice: String
+    let transactionPrice: String
+    
+    init(krwCoinName: String, englishCoinName: String, currentPrice: String, dtdPercentage: String, dtdPrice: String, transactionPrice: String) {
+        self.krwCoinName = krwCoinName
+        self.englishCoinName = englishCoinName
+        self.currentPrice = currentPrice
+        self.dtdPercentage = dtdPercentage
+        self.dtdPrice = dtdPrice
+        self.transactionPrice = transactionPrice
     }
 }

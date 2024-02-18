@@ -36,7 +36,7 @@ final class MarketCodeManager {
     // 전체 마켓 코드 가져오기
     func getAllMarketCode() async throws -> [MarketCode] {
         do {
-            let marketCodes = try await apiService.getAllMarketCode()
+            let marketCodes = try await apiService.getAllMarketCodes()
             return marketCodes
         } catch {
             print("Error: \(error)")

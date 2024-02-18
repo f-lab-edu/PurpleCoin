@@ -19,7 +19,7 @@ enum API {
 extension API: TargetType {
     
     var baseURL: URL {
-        return URL(string: NetworkConfig.baseURL)!
+        return URL(string: NetworkConfig.shared.baseURL)!
     }
     
     var path: String {
