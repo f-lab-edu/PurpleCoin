@@ -14,11 +14,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     public var navController = UINavigationController()
     var mainViewController: UIViewController?
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    func scene(
+        _ scene: UIScene,
+        willConnectTo session: UISceneSession,
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         do {
-            let apiService: APIService = try Container.standard.resolve(.by(type: APIService.self,  key: NetworkServiceConfig.upbitDIKey))
+            let apiService: APIService = try Container.standard.resolve(
+                .by(
+                    type: APIService.self,
+                    key: NetworkServiceConfig.upbitDIKey
+                )
+            )
             mainViewController = MainViewController(apiService: apiService)
             self.navController = UINavigationController(rootViewController: mainViewController!)
             self.navController.navigationBar.isHidden = true
@@ -44,4 +53,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidEnterBackground(_ scene: UIScene) {
     }
 }
-

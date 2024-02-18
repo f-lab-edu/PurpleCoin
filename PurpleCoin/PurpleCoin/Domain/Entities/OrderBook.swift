@@ -13,7 +13,7 @@ struct OrderBook: Codable {
     let totalAskSize: Double
     let totalBidSize: Double
     let orderbookUnits: [OrderBookUnit]
-    
+
     enum CodingKeys: String, CodingKey {
         case market
         case timestamp
@@ -28,11 +28,17 @@ struct OrderBookUnit: Codable {
     let bidPrice: Double
     let askSize: Double
     let bidSize: Double
-    
+
     enum CodingKeys: String, CodingKey {
         case askPrice = "ask_price"
         case bidPrice = "bid_price"
         case askSize = "ask_size"
         case bidSize = "bid_size"
     }
+}
+
+struct FormattedOrderBookData {
+    let price: String
+    let dtdPercentage: String
+    let size: String
 }

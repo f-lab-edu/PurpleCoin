@@ -8,11 +8,11 @@
 import UIKit
 
 class MarketSortingButtonView: UIView {
-    
+
     private enum Font {
         static let sortingButtonFont = PurpleCoinFont.font(type: .semibold, size: 13)
     }
-    
+
     let sortingOfAllButton: UIButton = {
         let button = UIButton()
         button.setTitle("전체(KRW)", for: .normal)
@@ -31,19 +31,19 @@ class MarketSortingButtonView: UIView {
         button.layer.borderWidth = 1
         return button
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = PurpleCoinColor.darkPointColor
         setLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-//MARK: Layout
+// MARK: Layout
 extension MarketSortingButtonView {
     func setLayout() {
         [sortingOfAllButton, sortingOfIntrestButton].forEach {

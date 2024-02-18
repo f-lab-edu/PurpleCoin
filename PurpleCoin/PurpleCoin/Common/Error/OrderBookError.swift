@@ -8,8 +8,8 @@
 import Foundation
 
 enum OrderBookError: Error {
-    //호가 정보 에러
+    // 호가 정보 에러
     case orderBookFetchingError
-    //decode 에러
+    // decode 에러
     case decodingError
 }

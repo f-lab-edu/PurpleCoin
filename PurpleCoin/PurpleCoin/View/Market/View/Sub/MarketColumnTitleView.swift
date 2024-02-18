@@ -8,11 +8,11 @@
 import UIKit
 
 class MarketColumnTitleView: UIView {
-    
+
     private enum Font {
         static let cloumnTitleLabelFont = PurpleCoinFont.font(type: .semibold, size: 11)
     }
-    
+
     let columnTopLineView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -51,22 +51,26 @@ class MarketColumnTitleView: UIView {
         view.backgroundColor = .white
         return view
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = PurpleCoinColor.darkPointColor
         setLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-//MARK: Layout
+// MARK: Layout
 extension MarketColumnTitleView {
     func setLayout() {
-        [columnTopLineView, coinNameLabel, currentPriceLabel, dtdPercentLabel, transactionPriceLabel, columnBottomLineView].forEach {
+        [
+            columnTopLineView,
+            coinNameLabel, currentPriceLabel, dtdPercentLabel, transactionPriceLabel,
+            columnBottomLineView
+        ].forEach {
             addSubview($0)
         }
         columnTopLineView.snp.makeConstraints {

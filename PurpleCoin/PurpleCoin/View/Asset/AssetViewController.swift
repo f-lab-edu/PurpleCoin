@@ -9,8 +9,4 @@ import UIKit
 
 final class AssetViewController: UIViewController {
 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 }

@@ -8,8 +8,8 @@
 import Foundation
 
 enum MarketCodeError: Error {
-    //호가 정보 에러
+    // 호가 정보 에러
     case marketCodeFetchingError
-    //decode 에러
+    // decode 에러
     case decodingError
 }

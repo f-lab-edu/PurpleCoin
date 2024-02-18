@@ -8,7 +8,7 @@
 import UIKit
 
 class MarketTopView: UIView {
-    
+
     let topTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "거래소"
@@ -16,8 +16,8 @@ class MarketTopView: UIView {
         label.textColor = .white
         return label
     }()
-    
-    //MARK: searchSection
+
+    // MARK: searchSection
     lazy var searchView: UIView = {
         let view = UIView()
         return view
@@ -42,19 +42,19 @@ class MarketTopView: UIView {
         view.backgroundColor = .white
         return view
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = PurpleCoinColor.pointColor
         setLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-//MARK: Layout
+// MARK: Layout
 extension MarketTopView {
     func setLayout() {
         setSearchView()
@@ -71,7 +71,7 @@ extension MarketTopView {
             $0.bottom.equalToSuperview().inset(25 * ScreenFigure.Ratio.VRatioValue)
         }
     }
-    
+
     func setSearchView() {
         [searchImageView, serachTextField, searchLineView].forEach {
             searchView.addSubview($0)

@@ -9,7 +9,7 @@ struct MarketCode: Codable {
     let englishName: String
     let koreanName: String
     let market: String
-    
+
     private enum CodingKeys: String, CodingKey {
         case englishName = "english_name"
         case koreanName = "korean_name"
@@ -45,7 +45,7 @@ struct MarketData: Codable {
     let lowest52WeekPrice: Double
     let lowest52WeekDate: String
     let timestamp: Int
-    
+
     private enum CodingKeys: String, CodingKey {
         case market
         case tradeDate = "trade_date"
@@ -73,5 +73,41 @@ struct MarketData: Codable {
         case lowest52WeekPrice = "lowest_52_week_price"
         case lowest52WeekDate = "lowest_52_week_date"
         case timestamp
+    }
+}
+
+struct FormattedMarketData {
+    let krwCoinName: String
+    let englishCoinName: String
+    let currentPrice: String
+    let dtdPercentage: String
+    let dtdPrice: String
+    let transactionPrice: String
+
+    init(
+        krwCoinName: String,
+        englishCoinName: String,
+        currentPrice: String,
+        dtdPercentage: String,
+        dtdPrice: String,
+        transactionPrice: String
+    ) {
+        self.krwCoinName = krwCoinName
+        self.englishCoinName = englishCoinName
+        self.currentPrice = currentPrice
+        self.dtdPercentage = dtdPercentage
+        self.dtdPrice = dtdPrice
+        self.transactionPrice = transactionPrice
+    }
+
+    init(currentPrice: String, dtdPercent: String, dtdPrice: String) {
+        self.init(
+            krwCoinName: "",
+            englishCoinName: "",
+            currentPrice: currentPrice,
+            dtdPercentage: dtdPercent,
+            dtdPrice: dtdPrice,
+            transactionPrice: ""
+        )
     }
 }

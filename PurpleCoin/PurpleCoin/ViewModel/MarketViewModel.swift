@@ -7,36 +7,35 @@
 
 import Foundation
 
-
 enum MarketCoinType {
     case krw
     case usd
 }
 
 final class MarketCodeManager {
-    
+
     var marketCodes: [MarketCode]?
     let apiService: APIService
-    
+
     init(apiService: APIService) {
         self.apiService = apiService
     }
-    
+
     func searchAllMarketCode() async {
         self.marketCodes = try? await getAllMarketCode()
     }
-    
+
     func readMarketCode() async -> [MarketCode] {
         if marketCodes == nil {
             await searchAllMarketCode()
         }
         return marketCodes!
     }
-    
+
     // 전체 마켓 코드 가져오기
     func getAllMarketCode() async throws -> [MarketCode] {
         do {
-            let marketCodes = try await apiService.getAllMarketCode()
+            let marketCodes = try await apiService.getAllMarketCodes()
             return marketCodes
         } catch {
             print("Error: \(error)")
@@ -51,11 +50,11 @@ protocol MarketDataFetcher {
     func maskMarketCode(marketCoinType: MarketCoinType, markets: [MarketCode]) -> String
 }
 
-struct KRWMarkeData {
+	struct KRWMarkeData {
     let marketCoinType = MarketCoinType.krw
     let apiService: APIService
     let marketCodeManager: MarketCodeManager
-    
+
     init(apiService: APIService) {
         self.apiService = apiService
         self.marketCodeManager = PurpleCoin.MarketCodeManager(apiService: apiService)
@@ -73,7 +72,7 @@ extension KRWMarkeData: MarketDataFetcher {
             throw error
         }
     }
-    
+
     // 코인 정보 가져오기 - [String]
     func getMarketData(marketCodes: [String]) async throws -> [MarketData] {
         let convertedMarketCode = convertArrToStr(marketCodes)
@@ -84,16 +83,15 @@ extension KRWMarkeData: MarketDataFetcher {
             throw error
         }
     }
-    
+
     func maskMarketCode(marketCoinType: MarketCoinType, markets: [MarketCode]) -> String {
         let KRWMarkets = markets.filter { market in
             market.market.contains("KRW-")
         }
         return KRWMarkets.map { $0.market }.joined(separator: ", ")
     }
-    
-    
-    func convertArrToStr(_ strArr: [String]) -> String{
+
+    func convertArrToStr(_ strArr: [String]) -> String {
         return strArr.joined(separator: ", ")
     }
 }
