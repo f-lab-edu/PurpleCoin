@@ -8,26 +8,30 @@
 import UIKit
 import Combine
 
-final class DetailCoinViewModel {
-    
-    let apiService: APIService
-    
-    init(apiService: APIService) {
-        self.apiService = apiService
-    }
+protocol OrderBookDataFetcher {
+    func getOrderBookData(marketCode: String) async throws -> OrderBook
 }
 
-extension DetailCoinViewModel {
+protocol DetailMarketDataFetcher {
+    func getMarketData(marketCode: String) async throws -> MarketData
+}
+
+struct DetailCoinData {
+    let apiService: APIService
+}
+
+extension DetailCoinData: DetailMarketDataFetcher {
     func getMarketData(marketCode: String) async throws -> MarketData {
         do {
             let marketData = try await apiService.getMarketData(marketCodes: marketCode)
             return marketData.first!
         } catch {
-            print("Error: \(error)")
             throw error
         }
     }
+}
 
+extension DetailCoinData: OrderBookDataFetcher {
     func getOrderBookData(marketCode: String) async throws -> OrderBook {
         do {
             let orderBookData = try await apiService.getOrderBookData(marketCodes: marketCode)

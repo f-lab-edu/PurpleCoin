@@ -8,13 +8,13 @@
 import UIKit
 
 final class CoinTableViewCell: UITableViewCell {
-    
+
     private enum Font {
         static let defaultLabelFont = PurpleCoinFont.font(type: .medium, size: 12)
         static let smallLabelFont = PurpleCoinFont.font(type: .medium, size: 10)
     }
     var cellTapAction: (() -> Void)?
-    
+
     let cellControl = UIControl()
     // 코인 이름 - 한국 
     let krwCoinNameLabel: UILabel = {
@@ -58,23 +58,29 @@ final class CoinTableViewCell: UITableViewCell {
         label.font = Font.defaultLabelFont
         return label
     }()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = PurpleCoinColor.darkPointColor
         setLayout()
         bindAction()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-//MAKR: Layout
+// MAKR: Layout
 extension CoinTableViewCell {
     func setLayout() {
-        [krwCoinNameLabel, englishCoinNameLabel, currentPriceLabel, dtdPercentageLabel, dtdPriceLabel, transactionPriceLabel, cellControl].forEach {
+        [
+            krwCoinNameLabel, englishCoinNameLabel,
+            currentPriceLabel,
+            dtdPercentageLabel, dtdPriceLabel,
+            transactionPriceLabel,
+            cellControl
+        ].forEach {
             contentView.addSubview($0)
         }
         krwCoinNameLabel.snp.makeConstraints {
@@ -107,22 +113,20 @@ extension CoinTableViewCell {
     }
 }
 
-//MARK: BindAction
+// MARK: BindAction
 extension CoinTableViewCell {
     func bindAction() {
         cellControl.addTarget(self, action: #selector(cellTapped(_ :)), for: .touchUpInside)
     }
-    
+
     @objc func cellTapped(_ sender: UIControl) {
         cellTapAction?()
     }
 }
 
-//MARK: SetAttribute
+// MARK: SetAttribute
 
 extension CoinTableViewCell {
-    
     func setAttributes() {
-        
     }
 }

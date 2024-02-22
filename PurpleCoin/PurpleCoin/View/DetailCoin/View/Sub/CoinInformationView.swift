@@ -8,11 +8,11 @@
 import UIKit
 
 class CoinInformationView: UIView {
-    
+
     private enum Font {
         static let priceLabelFont = PurpleCoinFont.font(type: .regular, size: 16)
     }
-    
+
     let coinPriceLabel: UILabel = {
         let label = UILabel()
         label.font = Font.priceLabelFont
@@ -23,19 +23,19 @@ class CoinInformationView: UIView {
         label.font = Font.priceLabelFont
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = PurpleCoinColor.pointColor
         setLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-//MARK: Layout
+// MARK: Layout
 extension CoinInformationView {
     func setLayout() {
         [coinPriceLabel, coinDTDLabel].forEach {
