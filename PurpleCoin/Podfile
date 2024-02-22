@@ -6,6 +6,7 @@ target 'PurpleCoin' do
   use_frameworks!
 	pod 'SnapKit', '~> 5.0.0'
 	pod 'Moya'
+	pod 'DIContainer-swift', '~> 0.2.0'
   # Pods for PurpleCoin
 
   target 'PurpleCoinTests' do

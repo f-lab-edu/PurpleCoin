@@ -8,12 +8,12 @@
 import UIKit
 
 final class OrderBookTableViewCell: UITableViewCell {
-    
+
     private enum Font {
         static let defaultFont = PurpleCoinFont.font(type: .regular, size: 14)
         static let smallFont = PurpleCoinFont.font(type: .regular, size: 12)
     }
-    
+
     let priceLabel: UILabel = {
         let label = UILabel()
         label.font = Font.defaultFont
@@ -45,19 +45,19 @@ final class OrderBookTableViewCell: UITableViewCell {
         label.text = "0.33"
         return label
     }()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = PurpleCoinColor.darkPointColor
         setLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-//MARK: Layout
+// MARK: Layout
 extension OrderBookTableViewCell {
     func setLayout() {
         [priceLabel, percentageLabel, middleLineView, barView, amountLabel].forEach {

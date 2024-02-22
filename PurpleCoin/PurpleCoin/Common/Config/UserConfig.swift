@@ -7,14 +7,14 @@
 
 import Foundation
 
-final class UserConfig { 
+final class UserConfig {
     static let shared = UserConfig()
     let userDefaults = UserDefaults()
-    
+
     private enum Keys {
         static let interestedCoins = "interestedCoins"
     }
-    
+
     var intrestedCoins: [String] {
         get {
             let savedData = userDefaults.stringArray(forKey: Keys.interestedCoins) ?? []

@@ -8,13 +8,13 @@
 import UIKit
 
 class MarketValuationView: UIView {
-    
+
     private enum Font {
         static let valuationLabelFont = PurpleCoinFont.font(type: .medium, size: 12)
         static let sortingButtonFont = PurpleCoinFont.font(type: .semibold, size: 13)
         static let cloumnTitleLabelFont = PurpleCoinFont.font(type: .semibold, size: 11)
     }
-    
+
     let totalPurchaseTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "총 매수"
@@ -71,23 +71,23 @@ class MarketValuationView: UIView {
         label.font = Font.valuationLabelFont
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = PurpleCoinColor.lightPointColor
         setLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-//MARK: Layout
+// MARK: Layout
 extension MarketValuationView {
     func setLayout() {
         [
-            totalPurchaseTitleLabel,totalPurchaseContentLabel,
+            totalPurchaseTitleLabel, totalPurchaseContentLabel,
             totalEvaluationTitleLabel, totalEvaluationContentLabel,
             valuationGainOrLossTitleLabel, valuationGainOrLossContentLabel,
             rateOfReturnTitleLabel, rateOfReturnContentLabel

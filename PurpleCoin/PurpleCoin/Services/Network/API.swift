@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-/// OAuth 인증 API 설정
+// OAuth 인증 API 설정
 enum API {
     // 전체 마켓 코드 가져오기
     case getAllMarketCode
@@ -17,11 +17,10 @@ enum API {
 }
 
 extension API: TargetType {
-    
     var baseURL: URL {
-        return URL(string: NetworkConfig.baseURL)!
+        return URL(string: NetworkConfig.shared.baseURL)!
     }
-    
+
     var path: String {
         switch self {
         case .getAllMarketCode:
@@ -32,7 +31,7 @@ extension API: TargetType {
             return "/orderbook"
         }
     }
-    
+
     var method: Moya.Method {
         switch self {
         case .getAllMarketCode,
@@ -41,7 +40,7 @@ extension API: TargetType {
             return .get
         }
     }
-    
+
     var task: Moya.Task {
         let parameter: [String: Any] = self.parameter ?? [:]
         switch self {
@@ -52,11 +51,11 @@ extension API: TargetType {
             return .requestPlain
         }
     }
-    
+
     var headers: [String: String]? {
         return ["Content-type": "application/x-www-form-urlencoded"]
     }
-    
+
     var parameter: [String: Any]? {
         switch self {
         case .getMarketInfo(marketCodes: let market),

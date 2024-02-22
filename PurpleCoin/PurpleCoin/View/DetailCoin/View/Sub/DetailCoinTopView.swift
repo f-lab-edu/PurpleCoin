@@ -8,16 +8,22 @@
 import UIKit
 
 class DetailCoinTopView: UIView {
-    
+
     private enum Font {
         static let topTitleLabelFont = PurpleCoinFont.font(type: .bold, size: 20)
     }
-    
+
     private enum Metric {
-        static let backButtonSize = CGSize(width: 30 * ScreenFigure.Ratio.VRatioValue, height: 30 * ScreenFigure.Ratio.VRatioValue)
-        static let intrestButtonSize = CGSize(width: 20 * ScreenFigure.Ratio.VRatioValue, height: 20 * ScreenFigure.Ratio.VRatioValue)
+        static let backButtonSize = CGSize(
+            width: 30 * ScreenFigure.Ratio.VRatioValue,
+            height: 30 * ScreenFigure.Ratio.VRatioValue
+        )
+        static let intrestButtonSize = CGSize(
+            width: 20 * ScreenFigure.Ratio.VRatioValue,
+            height: 20 * ScreenFigure.Ratio.VRatioValue
+        )
     }
-    
+
     let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "back"), for: .normal)
@@ -36,19 +42,19 @@ class DetailCoinTopView: UIView {
         button.setImage(UIImage(named: "star_filled"), for: .selected)
         return button
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = PurpleCoinColor.pointColor
         setLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-//MARK: Layout
+// MARK: Layout
 extension DetailCoinTopView {
     func setLayout() {
         [backButton, topTitleLabel, interestButton].forEach {

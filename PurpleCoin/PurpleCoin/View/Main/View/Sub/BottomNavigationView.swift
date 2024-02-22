@@ -8,7 +8,7 @@
 import UIKit
 
 class BottomNavigationView: UIView {
-    
+
     let navigationStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.backgroundColor = .clear
@@ -18,7 +18,7 @@ class BottomNavigationView: UIView {
         return stackView
     }()
     lazy var navigationControls: [UIControl] = [marketControl, assetControl]
-    
+
     lazy var marketButtonView: UIView = {
         let view = UIView()
         return view
@@ -40,7 +40,7 @@ class BottomNavigationView: UIView {
         control.tag = 0
         return control
     }()
-    
+
     lazy var assetButtonView: UIView = {
         let view = UIView()
         return view
@@ -69,13 +69,13 @@ class BottomNavigationView: UIView {
         setLayout()
         navigationControlTapped(marketControl)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-//MARK: Layout
+// MARK: Layout
 extension BottomNavigationView {
     func setLayout() {
         setMarketButtonView()
@@ -86,13 +86,13 @@ extension BottomNavigationView {
                 $0.width.equalTo(ScreenFigure.bounds.width/2)
             }
         }
-        
+
         addSubview(navigationStackView)
         navigationStackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
-    
+
     func setMarketButtonView() {
         [marketImageView, marketTitleLabel, marketControl].forEach {
             marketButtonView.addSubview($0)
@@ -110,7 +110,7 @@ extension BottomNavigationView {
             $0.edges.equalToSuperview()
         }
     }
-    
+
     func setAssetView() {
         [assetImageView, assetTitleLabel, assetControl].forEach {
             assetButtonView.addSubview($0)
@@ -130,14 +130,14 @@ extension BottomNavigationView {
     }
 }
 
-//MARK: BindAction
+// MARK: BindAction
 extension BottomNavigationView {
     func bindAction() {
         navigationControls.forEach {
             $0.addTarget(self, action: #selector(navigationControlTapped), for: .touchUpInside)
         }
     }
-    
+
     @objc func navigationControlTapped(_ sender: UIControl) {
         marketImageView.image = UIImage(named: "home")
         marketTitleLabel.textColor = .white

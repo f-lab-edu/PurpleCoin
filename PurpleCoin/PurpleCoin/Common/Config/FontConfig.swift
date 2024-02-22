@@ -8,6 +8,6 @@
 import Foundation
 
 enum FontConfig {
-    //base URL
+    // base URL
     static let baseFont = "AppleSDGothicNeo-"
 }

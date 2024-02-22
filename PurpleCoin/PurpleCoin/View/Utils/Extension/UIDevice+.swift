@@ -12,4 +12,3 @@ extension UIDevice {
         return UIApplication.shared.windows[0].safeAreaInsets.top > 20
     }
 }
-
