@@ -17,8 +17,7 @@ final class MarketViewController: UIViewController {
     let apiService: APIService
 
     let marketView = MarketView()
-    let viewModel: KRWMarkeData
-    let marketDataFetcher: MarketDataFetcher
+    let viewModel: MarketViewModel
 
     var sortingType: SortingType = .all
     var marketDatas: [MarketData]?
@@ -26,8 +25,7 @@ final class MarketViewController: UIViewController {
 
     init(apiService: APIService) {
         self.apiService = apiService
-        self.viewModel = KRWMarkeData(apiService: apiService)
-        self.marketDataFetcher = self.viewModel
+        self.viewModel = MarketViewModel(apiService: apiService, marketCoinType: .krw)
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -41,7 +39,7 @@ final class MarketViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchDataWithType()
+        getMarketData()
     }
 
     override func viewDidLoad() {
@@ -54,13 +52,8 @@ final class MarketViewController: UIViewController {
         view = marketView
     }
 
-    func fetchDataWithType() {
-        switch sortingType {
-        case .all:
-            getKRWMarketData()
-        case .intrested:
-            getSpecificMarketData()
-        }
+    func fetchMarketCoinType(marketCoinType: MarketCoinType) {
+        viewModel.changeMarketCoinType(marketCoinType: marketCoinType)
     }
 
     func setTableView() {
@@ -69,25 +62,10 @@ final class MarketViewController: UIViewController {
         marketView.coinTableView.dataSource = self
     }
 
-    func getKRWMarketData() {
+    func getMarketData() {
         Task {
             do {
-                let marketCodes = await viewModel.marketCodeManager.readMarketCode()
-                self.allMarketCodes = marketCodes
-                self.marketDatas = try await marketDataFetcher.getMarketData(marketCodes: marketCodes)
-                self.marketView.coinTableView.reloadData()
-            } catch {
-                print(error)
-            }
-        }
-    }
-
-    func getSpecificMarketData() {
-        Task {
-            do {
-                self.marketDatas = try await marketDataFetcher.getMarketData(
-                    marketCodes: UserConfig.shared.intrestedCoins
-                )
+                self.marketDatas = try await viewModel.readMarketData()
                 self.marketView.coinTableView.reloadData()
             } catch {
                 print(error)
@@ -122,12 +100,11 @@ extension MarketViewController {
         sender.layer.borderColor = PurpleCoinColor.selectColor.cgColor
         sender.setTitleColor(PurpleCoinColor.selectColor, for: .normal)
         if sender == marketView.sortingButtonView.sortingOfAllButton {
-            sortingType = .all
-            getKRWMarketData()
+            fetchMarketCoinType(marketCoinType: .krw)
         } else {
-            sortingType = .intrested
-            getSpecificMarketData()
+            fetchMarketCoinType(marketCoinType: .usd)
         }
+        getMarketData()
     }
 }
 
@@ -145,7 +122,7 @@ extension MarketViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CoinTableViewCell(style: CoinTableViewCell.CellStyle.default, reuseIdentifier: "cell")
         guard let marketDatas = marketDatas,
-              let marketCodes = allMarketCodes
+              let marketCodes = viewModel.marketCodeManager.marketCodes
         else {
             return UITableViewCell()
         }
