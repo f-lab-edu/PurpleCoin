@@ -16,11 +16,15 @@ protocol DetailMarketDataFetcher {
     func getMarketData(marketCode: String) async throws -> MarketData
 }
 
-struct DetailCoinData {
+class DetailCoinDataManager {
     let apiService: APIService
+    
+    init(apiService: APIService) {
+        self.apiService = apiService
+    }
 }
 
-extension DetailCoinData: DetailMarketDataFetcher {
+extension DetailCoinDataManager: DetailMarketDataFetcher {
     func getMarketData(marketCode: String) async throws -> MarketData {
         do {
             let marketData = try await apiService.getMarketData(marketCodes: marketCode)
@@ -31,7 +35,7 @@ extension DetailCoinData: DetailMarketDataFetcher {
     }
 }
 
-extension DetailCoinData: OrderBookDataFetcher {
+extension DetailCoinDataManager: OrderBookDataFetcher {
     func getOrderBookData(marketCode: String) async throws -> OrderBook {
         do {
             let orderBookData = try await apiService.getOrderBookData(marketCodes: marketCode)
@@ -40,5 +44,23 @@ extension DetailCoinData: OrderBookDataFetcher {
             print("Error: \(error)")
             throw error
         }
+    }
+}
+
+final class DetailCoinViewModel {
+    let detailMarketDataFetcher: DetailMarketDataFetcher
+    let orderBookDataFetcher: OrderBookDataFetcher
+    
+    init(apiService: APIService) {
+        self.detailMarketDataFetcher = DetailCoinDataManager(apiService: apiService)
+        self.orderBookDataFetcher = DetailCoinDataManager(apiService: apiService)
+    }
+    
+    func getMarketData(marketCode: String) async throws -> MarketData {
+        return try await detailMarketDataFetcher.getMarketData(marketCode: marketCode)
+    }
+    
+    func getOrderBookData(marketCode: String) async throws -> OrderBook {
+        return try await orderBookDataFetcher.getOrderBookData(marketCode: marketCode)
     }
 }

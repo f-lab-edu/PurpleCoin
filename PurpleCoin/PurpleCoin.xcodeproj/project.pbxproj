@@ -24,6 +24,8 @@
 		409286D62B35695700E89F62 /* DetailCoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286D52B35695700E89F62 /* DetailCoinViewController.swift */; };
 		409286DA2B35703000E89F62 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409286D92B35703000E89F62 /* Constants.swift */; };
 		683B9D0C853020C7F9FAAF13 /* Pods_PurpleCoin_PurpleCoinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D013B30DED23B68BE98E30D /* Pods_PurpleCoin_PurpleCoinUITests.framework */; };
+		799322372BB2FD02009348EF /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799322362BB2FD02009348EF /* UIViewController+.swift */; };
+		799322392BB30A31009348EF /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799322382BB30A31009348EF /* ErrorHandler.swift */; };
 		79A448D72B3873B800A18516 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A448D62B3873B800A18516 /* CoinTableViewCell.swift */; };
 		79C5A3952B46ED7200EC25BE /* star_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 79C5A3932B46ED7200EC25BE /* star_filled.png */; };
 		79C5A3992B46EF1600EC25BE /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 79C5A3982B46EF1600EC25BE /* star.png */; };
@@ -96,6 +98,8 @@
 		409286D52B35695700E89F62 /* DetailCoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoinViewController.swift; sourceTree = "<group>"; };
 		409286D92B35703000E89F62 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		70FED6C54BEADE5F81A7F666 /* Pods-PurpleCoinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurpleCoinTests.release.xcconfig"; path = "Target Support Files/Pods-PurpleCoinTests/Pods-PurpleCoinTests.release.xcconfig"; sourceTree = "<group>"; };
+		799322362BB2FD02009348EF /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		799322382BB30A31009348EF /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		79A448D62B3873B800A18516 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		79C5A3932B46ED7200EC25BE /* star_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_filled.png; sourceTree = "<group>"; };
 		79C5A3982B46EF1600EC25BE /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
@@ -416,6 +420,7 @@
 				79C5A3CD2B67B35400EC25BE /* MarketError.swift */,
 				79C5A3CF2B67B38B00EC25BE /* OrderBookError.swift */,
 				79C5A3D52B76368200EC25BE /* MarketCodeError.swift */,
+				799322382BB30A31009348EF /* ErrorHandler.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -440,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				79CDA6862B36AFD900633B65 /* UIDevice+.swift */,
+				799322362BB2FD02009348EF /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -738,6 +744,7 @@
 				79C5A3B42B4D6A3400EC25BE /* Formatter.swift in Sources */,
 				79CDA6872B36AFD900633B65 /* UIDevice+.swift in Sources */,
 				79C5A3B12B4BE7E400EC25BE /* MarketViewModel.swift in Sources */,
+				799322372BB2FD02009348EF /* UIViewController+.swift in Sources */,
 				409286D42B35695000E89F62 /* DetailCoinView.swift in Sources */,
 				79C5A3A32B4BC8ED00EC25BE /* API.swift in Sources */,
 				79C5A3AA2B4BCAA000EC25BE /* NetworkConfig.swift in Sources */,
@@ -753,6 +760,7 @@
 				409286D62B35695700E89F62 /* DetailCoinViewController.swift in Sources */,
 				79C5A3C62B5FF25100EC25BE /* MarketColumnTitleView.swift in Sources */,
 				409286862B3515D100E89F62 /* SceneDelegate.swift in Sources */,
+				799322392BB30A31009348EF /* ErrorHandler.swift in Sources */,
 				79C5A3D62B76368200EC25BE /* MarketCodeError.swift in Sources */,
 				402BDC392B50EC7400137E90 /* OrderBook.swift in Sources */,
 				79CDA68F2B36C02100633B65 /* AssetViewController.swift in Sources */,

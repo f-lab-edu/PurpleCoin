@@ -38,7 +38,7 @@ final class UpbitService: APIService {
                     } catch {
                         continuation.resume(throwing: MarketCodeError.decodingError)
                     }
-                case .failure(let err):
+                case .failure:
                     continuation.resume(throwing: MarketCodeError.marketCodeFetchingError)
                 }
             }
@@ -64,7 +64,7 @@ final class UpbitService: APIService {
                     } catch {
                         continuation.resume(throwing: MarketError.decodingError)
                     }
-                case .failure(let err):
+                case .failure:
                     continuation.resume(throwing: MarketError.marketDataFetchingError)
                 }
             }
@@ -83,7 +83,7 @@ final class UpbitService: APIService {
                     } catch {
                         continuation.resume(throwing: OrderBookError.decodingError)
                     }
-                case .failure(let err):
+                case .failure:
                     continuation.resume(throwing: OrderBookError.orderBookFetchingError)
                 }
             }

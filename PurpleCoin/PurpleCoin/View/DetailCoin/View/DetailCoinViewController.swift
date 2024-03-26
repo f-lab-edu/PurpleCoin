@@ -12,7 +12,7 @@ final class DetailCoinViewController: UIViewController {
     let apiService: APIService
     let marketCode: String
     let krwName: String
-    let viewModel: DetailCoinData
+    let viewModel: DetailCoinViewModel
 
     let detailCoinView = DetailCoinView()
 
@@ -38,7 +38,7 @@ final class DetailCoinViewController: UIViewController {
         self.krwName = krwName
         self.marketCode = marketCode
         self.apiService = apiService
-        self.viewModel = DetailCoinData(apiService: apiService)
+        self.viewModel = DetailCoinViewModel(apiService: apiService)
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -68,10 +68,26 @@ final class DetailCoinViewController: UIViewController {
                 self.orderBookData = try await viewModel.getOrderBookData(marketCode: marketCode)
                 completion()
             } catch {
-                print("Error: \(error)")
+                handleError(error: error)
             }
         }
     }
+    
+    func handleError(error: Error) {
+        if let marketError = error as? MarketError {
+            switch marketError {
+            case .marketCodeFetchingError:
+                showToast(message: "마켓 코드 패치 에러\n새로고침 해주세요")
+            case .marketDataFetchingError:
+                showToast(message: "마켓 데이터 패치 에러\n새로고침 해주세요")
+            case .decodingError:
+                showToast(message: "디코딩 에러\n새로고침 해주세요")
+            }
+        } else {
+            showToast(message: "알 수 없는 에러")
+        }
+    }
+
 
     func showAlert(message: String) {
         let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)

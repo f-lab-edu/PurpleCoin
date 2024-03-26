@@ -12,212 +12,6 @@ enum MarketCoinType {
     case btc
     case intrested
 }
-//
-//final class MarketCodeManager {
-//
-//    var marketCodes: [MarketCode]?
-//    let apiService: APIService
-//
-//    init(apiService: APIService) {
-//        self.apiService = apiService
-//    }
-//
-//    func searchAllMarketCode() async {
-//        self.marketCodes = try? await getAllMarketCode()
-//    }
-//
-//    func readMarketCode() async -> [MarketCode] {
-//        if marketCodes == nil {
-//            await searchAllMarketCode()
-//        }
-//        return marketCodes!
-//    }
-//
-//    // 전체 마켓 코드 가져오기
-//    func getAllMarketCode() async throws -> [MarketCode] {
-//        do {
-//            let marketCodes = try await apiService.getAllMarketCodes()
-//            return marketCodes
-//        } catch {
-//            print("Error: \(error)")
-//            throw error
-//        }
-//    }
-//}
-//
-//protocol MarketDataFetcher {
-//    func getMarketData(marketCodes: [MarketCode]) async throws -> [MarketData]
-//    func maskMarketCode(marketCoinType: MarketCoinType, markets: [MarketCode]) -> String
-//}
-//
-//struct KRWMarkeData: MarketDataFetcher {
-//    let apiService: APIService
-//
-//    init(apiService: APIService) {
-//        self.apiService = apiService
-//    }
-//}
-//
-//extension KRWMarkeData {
-//    // 코인 정보 가져오기 - [MarketCode]
-//    func getMarketData(marketCodes: [MarketCode]) async throws -> [MarketData] {
-//        let maskedMarketCode = self.maskMarketCode(marketCoinType: .krw, markets: marketCodes)
-//        do {
-//            let marketData = try await apiService.getMarketData(marketCodes: maskedMarketCode)
-//            return marketData
-//        } catch {
-//            throw error
-//        }
-//    }
-//
-//    func maskMarketCode(marketCoinType: MarketCoinType, markets: [MarketCode]) -> String {
-//        let KRWMarkets = markets.filter { market in
-//            market.market.contains("KRW-")
-//        }
-//        return KRWMarkets.map { $0.market }.joined(separator: ", ")
-//    }
-//}
-//
-//struct USDTMarkeData: MarketDataFetcher {
-//    let apiService: APIService
-//
-//    init(apiService: APIService) {
-//        self.apiService = apiService
-//    }
-//}
-//
-//extension USDTMarkeData {
-//    // 코인 정보 가져오기 - [MarketCode]
-//    func getMarketData(marketCodes: [MarketCode]) async throws -> [MarketData] {
-//        let maskedMarketCode = self.maskMarketCode(marketCoinType: .krw, markets: marketCodes)
-//        do {
-//            let marketData = try await apiService.getMarketData(marketCodes: maskedMarketCode)
-//            return marketData
-//        } catch {
-//            throw error
-//        }
-//    }
-//
-//    // 코인 정보 가져오기 - [String]
-//    func getMarketData(marketCodes: [String]) async throws -> [MarketData] {
-//        let convertedMarketCode = convertArrToStr(marketCodes)
-//        do {
-//            let marketData = try await apiService.getMarketData(marketCodes: convertedMarketCode)
-//            return marketData
-//        } catch {
-//            throw error
-//        }
-//    }
-//
-//    func maskMarketCode(marketCoinType: MarketCoinType, markets: [MarketCode]) -> String {
-//        let KRWMarkets = markets.filter { market in
-//            market.market.contains("BTC-")
-//        }
-//        return KRWMarkets.map { $0.market }.joined(separator: ", ")
-//    }
-//
-//    func convertArrToStr(_ strArr: [String]) -> String {
-//        return strArr.joined(separator: ", ")
-//    }
-//}
-//
-//struct IntrestedMarkeData: MarketDataFetcher {
-//    let apiService: APIService
-//
-//    init(apiService: APIService) {
-//        self.apiService = apiService
-//    }
-//}
-//
-//extension IntrestedMarkeData {
-//    // 코인 정보 가져오기 - [MarketCode]
-//    func getMarketData(marketCodes: [MarketCode]) async throws -> [MarketData] {
-//        let maskedMarketCode = self.maskMarketCode(marketCoinType: .krw, markets: marketCodes)
-//        do {
-//            let marketData = try await apiService.getMarketData(marketCodes: maskedMarketCode)
-//            return marketData
-//        } catch {
-//            throw error
-//        }
-//    }
-//
-//    // 코인 정보 가져오기 - [String]
-//    func getMarketData(marketCodes: [String]) async throws -> [MarketData] {
-//        let convertedMarketCode = convertArrToStr(marketCodes)
-//        do {
-//            let marketData = try await apiService.getMarketData(marketCodes: convertedMarketCode)
-//            return marketData
-//        } catch {
-//            throw error
-//        }
-//    }
-//
-//
-//    func maskMarketCode(marketCoinType: MarketCoinType, markets: [MarketCode]) -> String {
-//        let KRWMarkets = markets.filter { market in
-//            market.market.contains("BTC-")
-//        }
-//        return KRWMarkets.map { $0.market }.joined(separator: ", ")
-//    }
-//
-//    func convertArrToStr(_ strArr: [String]) -> String {
-//        return strArr.joined(separator: ", ")
-//    }
-//}
-//
-//class MarketViewModel {
-//    let apiService: APIService
-//    let marketCodeManager: MarketCodeManager
-//    let marketDataFetcherFactory: MarketDataFetcherFactory
-//
-//    init(apiService: APIService, marketCoinType: MarketCoinType) {
-//        self.apiService = apiService
-//        self.marketCodeManager = MarketCodeManager(apiService: apiService)
-//        self.marketDataFetcherFactory = MarketDataFetcherFactory(apiService: apiService, marketCoinType: marketCoinType)
-//    }
-//
-//    func readMarketData() async throws -> [MarketData] {
-//        let marketCodes = await marketCodeManager.readMarketCode()
-//        let marketDataFetcher = marketDataFetcherFactory.readMarketDataFetcher(for: )
-//        return try await marketDataFetcher.getMarketData(marketCodes: marketCodes)
-//    }
-//}
-//
-//class MarketDataFetcherFactory {
-//    let apiService: APIService
-//    var marketDataFetcher: MarketDataFetcher?
-//    var marketCoinType: MarketCoinType
-//
-//    init(apiService: APIService, marketCoinType: MarketCoinType) {
-//        self.apiService = apiService
-//        self.marketCoinType = marketCoinType
-//    }
-//
-//    func createMarketDataFetcher(for coinType: MarketCoinType) -> MarketDataFetcher {
-//        marketCoinType = coinType
-//        switch coinType {
-//        case .krw:
-//            return KRWMarkeData(apiService: apiService)
-//        case .usd:
-//            return USDTMarkeData(apiService: apiService)
-//        case .intrested:
-//            return KRWMarkeData(apiService: apiService)
-//        }
-//    }
-//
-//    func readMarketDataFetcher(for coinType: MarketCoinType) -> MarketDataFetcher {
-//        if marketDataFetcher == nil || marketCoinType != coinType {
-//            return createMarketDataFetcher(for: coinType)
-//        }
-//        return marketDataFetcher!
-//    }
-//
-//    func readMarketData() async throws -> [MarketData] {
-//
-//    }
-//}
-
-
 final class MarketViewModel {
     let apiService: APIService
     var marketDataManager: MarketDataManager
@@ -249,16 +43,20 @@ final class MarketDataManager {
     }
     
     func fetchMarketData() async throws -> [MarketData] {
-        let marketCodes = await marketCodeManager.retrieveConvertedMarketCode()
+        let marketCodes = try await retrieveSpecificMarketCode()
         return try await marketDataFetcher.fetchMarketData(marketCodes: marketCodes)
     }
     
+    private func retrieveSpecificMarketCode() async throws -> String{
+        return try await marketCodeManager.retrieveSpecificMarketCode()
+    }
+    
     func setCoinType(marketCoinType: MarketCoinType) {
-        marketCodeManager.changeCoinType(marketCoinType: marketCoinType)
+        marketCodeManager.changeMarketCoinType(to: marketCoinType)
     }
 }
 
-class MarketDataFetcher {
+final class MarketDataFetcher {
     let apiService: APIService
     
     init(apiservice: APIService) {
@@ -279,7 +77,7 @@ class MarketDataFetcher {
 final class MarketCodeManager {
     
     let apiService: APIService
-    var convertMarketCodeManager: ConvertMarketCodeManager?
+    var specificMarketCode: SpecificMarketCode?
 
     var marketCodes: [MarketCode]?
 
@@ -287,19 +85,19 @@ final class MarketCodeManager {
         self.apiService = apiService
     }
 
-    func searchAllMarketCode() async {
-        self.marketCodes = try? await retrieveAllMarketCode()
+    private func setAllMarketCode() async {
+        self.marketCodes = try? await fetchAllMarketCode()
     }
 
-    func readMarketCodes() async -> [MarketCode] {
+    private func readAllMarketCodes() async -> [MarketCode] {
         if marketCodes == nil {
-            await searchAllMarketCode()
+            await setAllMarketCode()
         }
         return marketCodes!
     }
 
-    // 전체 마켓 코드 가져오기/
-    private func retrieveAllMarketCode() async throws -> [MarketCode] {
+    // 전체 마켓 코드 가져오기
+    private func fetchAllMarketCode() async throws -> [MarketCode] {
         do {
             let marketCodes = try await apiService.getAllMarketCodes()
             return marketCodes
@@ -309,31 +107,31 @@ final class MarketCodeManager {
         }
     }
     
-    func retrieveConvertedMarketCode() async -> String {
-        guard let convertMarketCodeManager = convertMarketCodeManager else {
-            return ""
+    func retrieveSpecificMarketCode() async throws-> String {
+        guard let convertMarketCodeManager = specificMarketCode else {
+            throw MarketError.marketDataFetchingError
         }
-        let allMarketCodes = await readMarketCodes()
+        let allMarketCodes = await readAllMarketCodes()
         return convertMarketCodeManager.convertMarketCodes(allMarketCodes: allMarketCodes)
     }
     
-    func changeCoinType(marketCoinType: MarketCoinType) {
+    func changeMarketCoinType(to marketCoinType: MarketCoinType) {
         switch marketCoinType {
         case .krw:
-            convertMarketCodeManager = KRWMarketCode()
+            specificMarketCode = KRWMarketCode()
         case .btc:
-            convertMarketCodeManager = BTCMarketCode()
+            specificMarketCode = BTCMarketCode()
         case .intrested:
-            convertMarketCodeManager = IntrestedMarketCode()
+            specificMarketCode = IntrestedMarketCode()
         }
     }
 }
 
-protocol ConvertMarketCodeManager {
+protocol SpecificMarketCode {
     func convertMarketCodes(allMarketCodes: [MarketCode]) -> String
 }
 
-final class KRWMarketCode: ConvertMarketCodeManager {
+final class KRWMarketCode: SpecificMarketCode {
     func convertMarketCodes(allMarketCodes: [MarketCode]) -> String {
         let KRWMarkets = allMarketCodes.filter { market in
             market.market.contains("KRW-")
@@ -342,7 +140,7 @@ final class KRWMarketCode: ConvertMarketCodeManager {
     }
 }
 
-final class BTCMarketCode: ConvertMarketCodeManager {
+final class BTCMarketCode: SpecificMarketCode {
     func convertMarketCodes(allMarketCodes: [MarketCode]) -> String {
         let BTCMarkets = allMarketCodes.filter { market in
             market.market.contains("BTC-")
@@ -351,7 +149,7 @@ final class BTCMarketCode: ConvertMarketCodeManager {
     }
 }
 
-final class IntrestedMarketCode: ConvertMarketCodeManager {
+final class IntrestedMarketCode: SpecificMarketCode {
     func convertMarketCodes(allMarketCodes: [MarketCode]) -> String {
         return UserConfig.shared.intrestedCoins.joined(separator: ", ")
     }

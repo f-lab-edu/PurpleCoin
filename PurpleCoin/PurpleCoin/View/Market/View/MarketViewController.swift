@@ -9,7 +9,6 @@ import UIKit
 
 final class MarketViewController: UIViewController {
 
-
     let apiService: APIService
 
     let marketView = MarketView()
@@ -56,8 +55,16 @@ final class MarketViewController: UIViewController {
                 self.marketDatas = try await viewModel.fetchMarketData()
                 self.marketView.coinTableView.reloadData()
             } catch {
-                print(error)
+                handleError(error: error)
             }
+        }
+    }
+    
+    func handleError(error: Error) {
+        if let marketError = error as? MarketError {
+            marketError.getErrorWarning()
+        } else {
+            showToast(message: "알 수 없는 에러")
         }
     }
 
