@@ -13,12 +13,21 @@ class MarketSortingButtonView: UIView {
         static let sortingButtonFont = PurpleCoinFont.font(type: .semibold, size: 13)
     }
 
-    let sortingOfAllButton: UIButton = {
+    let sortingOfKRWButton: UIButton = {
         let button = UIButton()
-        button.setTitle("전체(KRW)", for: .normal)
+        button.setTitle("KRW", for: .normal)
         button.setTitleColor(PurpleCoinColor.selectColor, for: .normal)
         button.titleLabel?.font = Font.sortingButtonFont
         button.layer.borderColor = PurpleCoinColor.selectColor.cgColor
+        button.layer.borderWidth = 1
+        return button
+    }()
+    let sortingOfBTCButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("BTC", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = Font.sortingButtonFont
+        button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
         return button
     }()
@@ -46,18 +55,24 @@ class MarketSortingButtonView: UIView {
 // MARK: Layout
 extension MarketSortingButtonView {
     func setLayout() {
-        [sortingOfAllButton, sortingOfIntrestButton].forEach {
+        [sortingOfKRWButton, sortingOfBTCButton, sortingOfIntrestButton].forEach {
             addSubview($0)
         }
-        sortingOfAllButton.snp.makeConstraints {
+        sortingOfKRWButton.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(7 * ScreenFigure.Ratio.VRatioValue)
             $0.left.equalToSuperview().inset(12 * ScreenFigure.Ratio.HRatioValue)
             $0.width.equalTo(85 * ScreenFigure.Ratio.HRatioValue)
             $0.height.equalTo(27 * ScreenFigure.Ratio.VRatioValue)
         }
+        sortingOfBTCButton.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(7 * ScreenFigure.Ratio.VRatioValue)
+            $0.left.equalTo(sortingOfKRWButton.snp.right).offset(17 * ScreenFigure.Ratio.HRatioValue)
+            $0.width.equalTo(85 * ScreenFigure.Ratio.HRatioValue)
+            $0.height.equalTo(27 * ScreenFigure.Ratio.VRatioValue)
+        }
         sortingOfIntrestButton.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(7 * ScreenFigure.Ratio.VRatioValue)
-            $0.left.equalTo(sortingOfAllButton.snp.right).offset(17 * ScreenFigure.Ratio.HRatioValue)
+            $0.left.equalTo(sortingOfBTCButton.snp.right).offset(17 * ScreenFigure.Ratio.HRatioValue)
             $0.width.equalTo(48 * ScreenFigure.Ratio.HRatioValue)
             $0.height.equalTo(27 * ScreenFigure.Ratio.VRatioValue)
         }

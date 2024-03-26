@@ -76,32 +76,40 @@ final class MarketViewController: UIViewController {
 // MARK: BindAction
 extension MarketViewController {
     func bindAction() {
-        marketView.sortingButtonView.sortingOfAllButton.addTarget(
-            self,
-            action: #selector(sortingButtonTapped(_ :)),
-            for: .touchUpInside
-        )
-        marketView.sortingButtonView.sortingOfIntrestButton.addTarget(
-            self,
-            action: #selector(sortingButtonTapped(_ :)),
-            for: .touchUpInside
-        )
+        [
+            marketView.sortingButtonView.sortingOfKRWButton,
+            marketView.sortingButtonView.sortingOfBTCButton,
+            marketView.sortingButtonView.sortingOfIntrestButton
+        ].forEach {
+            $0.addTarget(
+                self,
+                action: #selector(sortingButtonTapped(_ :)),
+                for: .touchUpInside
+            )
+        }
     }
 
     @objc func sortingButtonTapped(_ sender: UIButton) {
         guard marketDatas != nil else {
             return
         }
-        [marketView.sortingButtonView.sortingOfAllButton, marketView.sortingButtonView.sortingOfIntrestButton].forEach {
+        [
+            marketView.sortingButtonView.sortingOfKRWButton,
+            marketView.sortingButtonView.sortingOfBTCButton,
+            marketView.sortingButtonView.sortingOfIntrestButton
+        ].forEach {
             $0.layer.borderColor = UIColor.white.cgColor
             $0.setTitleColor(.white, for: .normal)
         }
         sender.layer.borderColor = PurpleCoinColor.selectColor.cgColor
         sender.setTitleColor(PurpleCoinColor.selectColor, for: .normal)
-        if sender == marketView.sortingButtonView.sortingOfAllButton {
+        if sender == marketView.sortingButtonView.sortingOfKRWButton {
             setSortingType(type: .krw)
             fetchMarketData()
-        } else {
+        } else if sender == marketView.sortingButtonView.sortingOfBTCButton {
+            setSortingType(type: .btc)
+            fetchMarketData()
+        } else if sender == marketView.sortingButtonView.sortingOfIntrestButton {
             setSortingType(type: .intrested)
             fetchMarketData()
         }
@@ -122,7 +130,7 @@ extension MarketViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CoinTableViewCell(style: CoinTableViewCell.CellStyle.default, reuseIdentifier: "cell")
         guard let marketDatas = marketDatas,
-              let marketCodes = allMarketCodes
+              let marketCodes = NetworkConfig.shared.allMarketCodes
         else {
             return UITableViewCell()
         }
